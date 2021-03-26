@@ -1,1 +1,1 @@
-# React-Redux-Project-Medium-Clone
+# React-Redux-Project-Quora-Clone
