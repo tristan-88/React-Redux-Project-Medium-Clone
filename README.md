@@ -1,4 +1,4 @@
-# React-Redux-Project-Quora-Clone
+# Welcome to Mgt-Cards Channel!
 
 ## Wiki Links
 
