@@ -3,10 +3,14 @@ i.fas.fa-dragon {
 }
 
 .nav-link_div{
-float: left;
+  max-width: min-content;
   font-size: 16px;
-  color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+.demo-btn,
+.signup-btn{
+    text-decoration: none;
 }

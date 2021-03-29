@@ -27,7 +27,7 @@ function LoginForm() {
 
 	return (
 		<section className="log_in_form">
-			<h2 className="log_in_h2">Log-In</h2>
+			<h2 className="log_in_h2">Log In</h2>
 			<form onSubmit={handleSubmit}>
 				<ul>
 					{errors.map((error, idx) => (

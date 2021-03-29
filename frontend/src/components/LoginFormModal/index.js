@@ -7,7 +7,13 @@ function LoginFormModal() {
 
 	return (
 		<>
-			<button onClick={() => setShowModal(true)}>Log In</button>
+			<button onClick={() => setShowModal(true)}>
+				<div className="icon_div">
+					<i className="fas fa-dragon" />
+					Log In
+				</div>
+			</button>
+			{/* <button onClick={() => setShowModal(true)}>Log In</button> */}
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<LoginForm />

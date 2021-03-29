@@ -17,22 +17,24 @@ function Navigation({ isLoaded }) {
 		sessionLinks = <ProfileButton user={sessionUser} />;
 	} else {
 		sessionLinks = (
-            <div>
-                <div>
-                	<LoginFormModal />
-                </div>
-				<div>
-					<button>
-					<NavLink to="/signup">Sign Up</NavLink>	
-					</button>
-					
-				</div>
-				<div>
-					<button>
-					<NavLink to='/' onClick={onClick}>Demo Login</NavLink>	
-					</button>
-					
-				</div>
+			<div>
+				<LoginFormModal />
+				<button>
+					<div className="icon_div">
+						<i className="fas fa-dragon" />
+						<NavLink to="/signup" className="signup-btn">
+							Sign Up
+						</NavLink>
+					</div>
+				</button>
+				<button>
+					<div className="icon_div">
+						<i className="fas fa-dragon" />
+						<NavLink to="/" onClick={onClick} className="demo-btn">
+							Demo Login
+						</NavLink>
+					</div>
+				</button>
 			</div>
 		);
 	}
