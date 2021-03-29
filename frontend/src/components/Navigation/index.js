@@ -40,17 +40,18 @@ function Navigation({ isLoaded }) {
 	}
 
     return (
-        <div className="nav-link_div">
-			<ul>
-				<li>
-					<div>
-						<NavLink exact to="/">Home</NavLink>
-                    </div>
-				{isLoaded && sessionLinks}
-				</li>
-			</ul>
-        </div>
-	);
+			<div className="nav-link_div">
+				<button>
+						<div className="icon_div">
+							<i className="fas fa-dragon" />
+							<NavLink exact to="/">
+								Home
+							</NavLink>
+						</div>
+				</button>
+					{isLoaded && sessionLinks}
+			</div>
+		);
 }
 
 export default Navigation;
