@@ -23,7 +23,7 @@ function Navigation({ isLoaded }) {
 					<div className="icon_div">
 						<i className="fas fa-dragon" />
 						<NavLink to="/signup" className="signup-btn">
-							Sign Up
+							{" Sign Up "}
 						</NavLink>
 					</div>
 				</button>
@@ -31,7 +31,7 @@ function Navigation({ isLoaded }) {
 					<div className="icon_div">
 						<i className="fas fa-dragon" />
 						<NavLink to="/" onClick={onClick} className="demo-btn">
-							Demo Login
+							{" Demo Login "}
 						</NavLink>
 					</div>
 				</button>
@@ -44,8 +44,8 @@ function Navigation({ isLoaded }) {
 				<button>
 						<div className="icon_div">
 							<i className="fas fa-dragon" />
-							<NavLink exact to="/">
-								Home
+							<NavLink exact to="/" style={{textDecoration: 'none'}}>
+						{" Home "}
 							</NavLink>
 						</div>
 				</button>
