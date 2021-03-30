@@ -56,7 +56,8 @@ module.exports = (sequelize, DataTypes) => {
 		}
 	);
 	User.associate = function (models) {
-		// associations can be defined here
+		User.hasMany(models.Comment, { foreignKey:'userId'});
+		User.hasMany(models.AnswerComment, { foreignKey:'userId'});
   };
   
 User.prototype.toSafeObject = function () {
@@ -70,7 +71,7 @@ User.prototype.toSafeObject = function () {
     //accept a password string and return true 
     //if there is a match with the User instance's hashedPassword, otherwise return false.
 		return bcrypt.compareSync(password, this.hashedPassword.toString());
-  };
+};
 
   //USER STATIC METHODS
 

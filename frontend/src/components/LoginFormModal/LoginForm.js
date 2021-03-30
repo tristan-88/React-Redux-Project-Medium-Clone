@@ -27,33 +27,45 @@ function LoginForm() {
 
 	return (
 		<section className="log_in_form">
+			<div className="log_in_container">
+
 			<h2 className="log_in_h2">Log In</h2>
 			<form onSubmit={handleSubmit}>
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
-					))}
+						))}
+						
 				</ul>
+					<div>
 				<label>
-					Username or Email
+					{'Username or Email '}
 					<input
 						type="text"
 						value={credential}
 						onChange={(e) => setCredential(e.target.value)}
 						required
-					/>
+						/>
 				</label>
+				</div>
+				<div>
+
 				<label>
-					Password
+					{'Password '}
 					<input
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
-					/>
-				</label>
+						/>
+					</label>
+					<div className="log_in_sbm_btn">
+
 				<button type="submit">Log In</button>
+					</div>
+					</div>
 			</form>
+		</div>
 		</section>
 	);
 }

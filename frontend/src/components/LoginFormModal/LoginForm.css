@@ -1,0 +1,20 @@
+#modal-content{
+    background-image:url('../../../src/project-items/4hRzp7H7kPe85oW7cI0ThA.jpeg');
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: plum;
+    text-shadow: -1px 3px 3px black,
+				  3px 3px 3px black,
+				  3px -1px 0 black,
+				  -1px -1px 0 black; 
+    font-weight: bolder;
+
+}
+
+.log_in_form{
+    display:flex;
+}
