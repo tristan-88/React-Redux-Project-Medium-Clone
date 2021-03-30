@@ -19,39 +19,51 @@ function Navigation({ isLoaded }) {
 		sessionLinks = (
 			<div>
 				<LoginFormModal />
-				<button>
 					<div className="icon_div">
-						<i className="fas fa-dragon" />
 						<NavLink to="/signup" className="signup-btn">
 							{" Sign Up "}
 						</NavLink>
 					</div>
-				</button>
-				<button>
 					<div className="icon_div">
-						<i className="fas fa-dragon" />
 						<NavLink to="/" onClick={onClick} className="demo-btn">
-							{" Demo Login "}
+							Demo Log in
 						</NavLink>
 					</div>
-				</button>
 			</div>
 		);
 	}
 
-    return (
-			<div className="nav-link_div">
-				<button>
-						<div className="icon_div">
-							<i className="fas fa-dragon" />
-							<NavLink exact to="/" style={{textDecoration: 'none'}}>
-						{" Home "}
-							</NavLink>
-						</div>
-				</button>
+	return (
+		// <div className="nav-link-container">
+		// 	<div className="nav-link_div">
+		// 		<button className="home-btn">
+		// 				<div className="icon_div">
+		// 					<i className="fas fa-dragon" />
+		// 					<NavLink exact to="/" style={{textDecoration: 'none'}}>
+		// 				{" Home "}
+		// 					</NavLink>
+		// 				</div>
+		// 		</button>
+		// 		<div className='log-sign-demo-btn'>
+		// 			{isLoaded && sessionLinks}
+		// 		</div>
+		// 	</div>
+		// </div>
+
+		<nav role="navigation">
+			<div id="menuToggle" className="icon_div">
+				<i className="fas fa-dragon" />
+				<input type="checkbox"></input>
+
+				<ul id="menu">
+					<NavLink exact to="/" style={{ textDecoration: "none" }}>
+						<li>Home</li>
+					</NavLink>
 					{isLoaded && sessionLinks}
+				</ul>
 			</div>
-		);
+		</nav>
+	);
 }
 
 export default Navigation;

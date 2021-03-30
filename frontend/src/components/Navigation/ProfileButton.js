@@ -33,7 +33,6 @@ function ProfileButton({ user }) {
 		<>
             <button onClick={openMenu}>
                 <div className="icon_div">
-					<i className="fas fa-dragon" />
 					User:
 					{`\n${user.username}`}
                 </div>

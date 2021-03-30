@@ -6,15 +6,32 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    color: plum;
+    color: rgb(201, 187, 187);
     text-shadow: -1px 3px 3px black,
 				  3px 3px 3px black,
 				  3px -1px 0 black,
 				  -1px -1px 0 black; 
     font-weight: bolder;
+    background-blend-mode: luminosity;
+    background-color: black;
 
 }
 
-.log_in_form{
+.log_in_container{
     display:flex;
+    text-align-last: justify;
+    justify-content: space-evenly;
+    height: 500px;
+    align-items: center;
+    font-size: large;
+}
+
+.log_div{
+    font-size: 16px;
+     color: plum;
+    text-shadow: -1px 3px 3px black,
+				  3px 3px 3px black,
+				  3px -1px 0 black,
+				  -1px -1px 0 black; 
+
 }
