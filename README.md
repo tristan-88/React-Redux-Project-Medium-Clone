@@ -11,7 +11,7 @@
 [Frontend Routes](https://github.com/tristan-88/React-Redux-Project-Quora-Clone/wiki/Frontend-Routes)
 
 [API Routes](https://github.com/tristan-88/React-Redux-Project-Quora-Clone/wiki/API-Routes)
-
+ 
 
 ## Database Schema
 
