@@ -3,9 +3,12 @@ import thunk from "redux-thunk";
 import { restoreCSRF, csrfFetch } from "./csrf";
 import sessionReducer from "./session";
 import * as sessionActions from "./session";
+import mgtCardReducer from "./mgtcards"
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  mgtcardsRdcr: mgtCardReducer,
+  
 });
 
 let enhancer;

@@ -50,7 +50,9 @@ li:hover{
   color:plum;
 }
 
-#menuToggle a
+#menuToggle a,
+.user-name-div,
+.user-email-div
 {
   text-decoration: none;
    color: plum;
@@ -105,7 +107,7 @@ li:hover{
 #menu
 {
   position:relative;
-  width: 100px;
+  width: 200px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
@@ -120,8 +122,8 @@ li:hover{
 
 #menu li
 {
-  padding: 10px 0;
-  font-size: 22px;
+  padding: 10px;
+  font-size: 16px;
 }
 
 /*

@@ -57,7 +57,7 @@ function Navigation({ isLoaded }) {
 
 				<ul id="menu">
 					<NavLink exact to="/" style={{ textDecoration: "none" }}>
-						<li>Home</li>
+						Home
 					</NavLink>
 					{isLoaded && sessionLinks}
 				</ul>
