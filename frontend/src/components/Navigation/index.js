@@ -25,12 +25,16 @@ function Navigation({ isLoaded }) {
 						</NavLink>
 					</div>
 					<div className="icon_div">
-						<NavLink to="/" onClick={onClick} className="demo-btn">
+						<NavLink exact to="/mainpage" onClick={onClick} className="demo-btn">
 							Demo Log in
 						</NavLink>
 					</div>
 			</div>
 		);
+	}
+
+	function icontext () {
+		
 	}
 
 	return (
@@ -52,9 +56,9 @@ function Navigation({ isLoaded }) {
 
 		<nav role="navigation">
 			<div id="menuToggle" className="icon_div">
-				<i className="fas fa-dragon" />
-				<input type="checkbox"></input>
 
+				<i className="fas fa-dragon"></i>
+				<input className="input-item" type="checkbox"></input>
 				<ul id="menu">
 					<NavLink exact to="/" style={{ textDecoration: "none" }}>
 						Home

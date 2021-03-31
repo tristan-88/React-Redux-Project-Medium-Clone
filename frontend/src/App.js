@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import SignupFormPage from './components/SignFormPage';
 import Navigation from './components/Navigation'
 import MainPage from './components/MainPage'
+import SplashPage from './components/SplashPage'
 import * as sessionActions from './store/session';
 
 
@@ -16,20 +17,22 @@ function App() {
 	}, [dispatch]);
 
   return (
-    <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-      <Route path='/signup'>
-        <SignupFormPage />
-          </Route>
-          <Route path="/mainpage" exact>
-            <MainPage />
-          </Route>
-      </Switch>
-      )}
-      </>
-		
+		<>
+			<Navigation isLoaded={isLoaded}></Navigation>
+			{isLoaded && (
+				<Switch>
+					<Route exact path="/">
+						<SplashPage />
+					</Route>
+					<Route exact path="/signup">
+						<SignupFormPage />
+					</Route>
+					<Route exact path="/mainpage">
+						<MainPage />
+					</Route>
+				</Switch>
+			)}
+		</>
 	);
 }
 

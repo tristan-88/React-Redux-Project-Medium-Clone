@@ -1,0 +1,45 @@
+.splash-body{
+     background-image: url('../../project-items/4-47684_mtg-wallpaper-high-definition-desktop-background-blue-and.jpeg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;   
+    /* opacity: 0.6; 
+    filter: alpha(opacity=60); */
+}
+
+.h1-container{
+    display: flex;
+    position: absolute;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+    color: darkorchid;
+    font: bold 52px Helvetica, Arial, Sans-Serif;
+   text-shadow: 1px 1px whitesmoke, 
+                3px 3px white, 
+                5px 5px white;
+    font-size: xx-large;
+     
+      /* text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5); -webkit-background-clip: text; */
+     -moz-background-clip: text;
+          background-clip: text;
+          background-color: rgb(113, 153, 226);
+   mix-blend-mode:hard-light;
+}
+
+
+
+.hi-splash{
+    
+  
+  
+ 
+}

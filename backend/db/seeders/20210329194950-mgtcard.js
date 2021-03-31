@@ -32,7 +32,7 @@ module.exports = {
      for (let j = 0; j <= 99; j++) {
      mgtCards.push({
 					cardName: cardsObj.cards[j].name,
-          cardImg: `http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=${cardsObj.cards[j].multiverseid}&type=card`,
+          cardImg: cardsObj.cards[j].imageUrl,
 					cardSet: cardsObj.cards[j].set,
           cardType: cardsObj.cards[j].type,
 					cardColors: cardsObj.cards[j].colors,

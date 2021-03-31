@@ -13,8 +13,7 @@ module.exports = {
 				allowNull: false,
 			},
 			cardImg: {
-				type: Sequelize.STRING(4000),
-				allowNull: false,
+				type: Sequelize.STRING(4000)
 			},
 			cardSet: {
 				type: Sequelize.STRING(1000),

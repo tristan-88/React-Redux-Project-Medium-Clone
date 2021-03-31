@@ -107,11 +107,11 @@ li:hover{
 #menu
 {
   position:relative;
-  width: 200px;
+  width: 150px;
   margin: -100px 0 0 -50px;
   padding: 50px;
   padding-top: 125px;
-  background: rgb(48, 70, 109);
+  background: rgb(42, 62, 95);
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */

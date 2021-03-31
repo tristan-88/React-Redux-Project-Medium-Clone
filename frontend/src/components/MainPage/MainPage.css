@@ -1,0 +1,15 @@
+.main-page-div{
+     background-image: url('../../project-items/4hRzp7H7kPe85oW7cI0ThA.jpeg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: inline-block;   
+    /* opacity: 0.6; 
+    filter: alpha(opacity=60); */
+}

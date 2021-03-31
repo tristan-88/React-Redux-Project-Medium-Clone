@@ -9,7 +9,7 @@ router.get(
     "/",
     asyncHandler(async (req, res) => {
         const mgtcards = await MgtCard.findAll({
-            attributes: ["cardName", "cardImg"]
+            attributes: ["cardName", "cardImg","cardId", "id"]
         })
         return res.json({
             mgtcards,
