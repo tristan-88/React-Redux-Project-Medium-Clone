@@ -11,7 +11,7 @@ module.exports = {
 		answerComments.push({
 		  answer: faker.lorem.paragraph(),
 			userId: random.integer(1, 3),
-			commentId: random.integer(1, 99),
+			commentId: random.integer(1, 80),
 		});
 	}
 

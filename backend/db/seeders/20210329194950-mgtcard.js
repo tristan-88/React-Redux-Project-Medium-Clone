@@ -1,8 +1,10 @@
 'use strict';
 const fetch = require('node-fetch')
-
+ let mgtCards = []
 module.exports = {
-  up:  async (queryInterface, Sequelize) => {
+  
+  up: async (queryInterface, Sequelize) => {
+    
     // for (let i = 0; i <= 5; i++){
     //   console.log('this is also working ')
      
@@ -24,22 +26,26 @@ module.exports = {
       
     //   }
     // }
-    let mgtCards = [];
+    
      let response = await fetch(
        `https://api.magicthegathering.io/v1/cards`
        );
     let cardsObj = await response.json();
-     for (let j = 0; j <= 99; j++) {
-     mgtCards.push({
+    for (let j = 0; j <= 99; j++) {
+      const { name, imageUrl, set, type, colors, text, id, manaCost } = cardsObj.cards[j];
+      if (name && imageUrl && set && type && colors && text && id && manaCost) {
+        	mgtCards.push({
 					cardName: cardsObj.cards[j].name,
-          cardImg: cardsObj.cards[j].imageUrl,
+					cardImg: cardsObj.cards[j].imageUrl,
 					cardSet: cardsObj.cards[j].set,
-          cardType: cardsObj.cards[j].type,
+					cardType: cardsObj.cards[j].type,
 					cardColors: cardsObj.cards[j].colors,
-          cardText: cardsObj.cards[j].text,
+					cardText: cardsObj.cards[j].text,
 					cardId: cardsObj.cards[j].id,
 					cardManaCost: cardsObj.cards[j].manaCost,
 				});
+      }
+			
       }
 
 
@@ -56,5 +62,6 @@ module.exports = {
     return queryInterface.bulkDelete("MgtCards", null, {
 			
 		});
-  }
+  },
+  mgtCards,
 };

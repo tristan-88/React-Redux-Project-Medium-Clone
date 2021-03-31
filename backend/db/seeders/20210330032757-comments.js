@@ -2,7 +2,7 @@
 const faker = require('faker')
 const { Random } = require('random-js');
 const random = new Random();
-
+// const { mgtCards } = require('./20210329194950-mgtcard')
 module.exports = {
   up: (queryInterface, Sequelize) => {
 		/*
@@ -20,16 +20,14 @@ module.exports = {
       }], {});
     */
     let comments = []
-    for (let i = 0; i < 100; i++){
+    for (let i = 0; i < 80; i++){
       comments.push({
         content: faker.lorem.paragraph(),
         userId: random.integer(1, 3),
-        mgtCardId: random.integer(1, 100)
+        mgtCardId: random.integer(1, 80)
         
       });
     }
-    
-    
     
     return queryInterface.bulkInsert('Comments', comments, {});
 	},
