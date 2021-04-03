@@ -11,7 +11,7 @@ const getCards= (cards) => {
 
 
 
-const initialState = { cards: null };
+const initialState = { };
 
 const mgtCardReducer = (state = initialState, action) => {
 
@@ -19,7 +19,10 @@ const mgtCardReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_CARDS:
             newState = Object.assign({}, state);
-            newState.cards = action.payload;
+            for (let i = 0; i < action.payload.length; i++){
+                const key = action.payload[i].id
+                newState[key] = action.payload[i]    
+            }
             return newState;
         default:
             return state;

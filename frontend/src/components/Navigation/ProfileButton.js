@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './Navigation.css'
 
 function ProfileButton({ user }) {
 	const dispatch = useDispatch();
 	const [showMenu, setShowMenu] = useState(false);
-
+	const history = useHistory()
 	const openMenu = () => {
 		if (showMenu) return;
 		setShowMenu(true);
@@ -27,15 +27,23 @@ function ProfileButton({ user }) {
 
 	const logout = (e) => {
 		e.preventDefault();
-		dispatch(sessionActions.logout());
+		try {
+   			dispatch(sessionActions.logout());
+    		history.push("/");
+  		} catch (e) {
+    		alert(e.message);
+  		}
 		
 	};
-
+			
 	return (
 		<div className="show-menu-container">
-			<button onClick={openMenu}>
-				<div className="user-btn_div">{`User:${user.username}`}</div>
-			</button>
+			
+				<div
+					onClick={openMenu}
+					className="user-btn_div"
+			>{"User ▼"}</div>
+			
 			{showMenu && (
 				<div>
 					<div>

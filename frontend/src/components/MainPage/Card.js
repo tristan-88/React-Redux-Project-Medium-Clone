@@ -1,4 +1,5 @@
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom"
+import "./MainPage.css"
 
 function Card({ card }) {
     return (
@@ -7,7 +8,7 @@ function Card({ card }) {
 					{card?.cardName}
 				</div>
 				<Link to={`/card/${card.id}`} >
-					<img src={`${card.cardImg}`} alt="" />
+                <img src={`${card.cardImg}`} alt="" className="card-img" />
 				</Link>
 			</div>
 		)

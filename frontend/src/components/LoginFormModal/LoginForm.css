@@ -18,12 +18,17 @@
 }
 
 .log_in_container{
-    display:flex;
+    /* display:flex;
     text-align-last: justify;
     justify-content: space-evenly;
     height: 500px;
     align-items: center;
+    font-size: large; */
     font-size: large;
+    max-width: min-content;
+    display: inline-block;
+    height: inherit;
+    width: inherit;
 }
 
 .log_div{
@@ -33,5 +38,6 @@
 				  3px 3px 3px black,
 				  3px -1px 0 black,
 				  -1px -1px 0 black; 
+                  font-weight: bold;
 
 }

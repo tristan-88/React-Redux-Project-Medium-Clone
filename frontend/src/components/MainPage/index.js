@@ -7,29 +7,38 @@ import Card from "./Card"
 import './MainPage.css'
 
 function MainPage() {
-    const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
-    const mgtCardsState = useSelector(state => state?.mgtcardsRdcr?.cards);
-    useEffect(() => {
-        dispatch(showMgtCards())
-    }, [])
-    //Logout re-direct
-    if (!sessionUser) {
-      return (<Redirect to="/" />)
-    } 
+
+  const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+  const mgtCardsState = useSelector(state => state?.mgtcardsRdcr) || {};
+  const cards = Object.values(mgtCardsState);
+  console.log(cards);
+  console.log(mgtCardsState);
+  useEffect(() => {
+    dispatch(showMgtCards());
+  }, []);
+  //Logout re-direct
+  
+  
+  return (
+    <div className="main-page-div">
+     
+      {sessionUser && <div className="cards-container">
+        {cards.map((card) => <Card card={card} key={card.id} />)}
+      </div>}
+      {sessionUser ? null : <Redirect exact to="/" />}
+    </div>
+    )
+}
+    
+
+
+
+ 
    
     
     
-    console.log(mgtCardsState)
-    
-    return (
-			<div className="main-page-div">
-				<div className="cards-container">
-          {mgtCardsState?.map((card) => <Card card={card} key={card.id} />)}
-				</div>
-			</div>
-		);
-}
+
 
 
 

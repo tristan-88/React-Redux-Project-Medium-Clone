@@ -1,5 +1,5 @@
 .splash-body{
-     background-image: url('../../project-items/4-47684_mtg-wallpaper-high-definition-desktop-background-blue-and.jpeg');
+     background-image: url('../../project-items/4hRzp7H7kPe85oW7cI0ThA.jpeg');
     position: absolute;
     top: 0;
     left: 0;
@@ -15,24 +15,31 @@
 }
 
 .h1-container{
-    display: flex;
+       display: flex;
     position: absolute;
     height: 100%;
     justify-content: center;
     width: 100%;
     align-items: center;
-    color: darkorchid;
+    color: #364351;
     font: bold 52px Helvetica, Arial, Sans-Serif;
-   text-shadow: 1px 1px whitesmoke, 
-                3px 3px white, 
-                5px 5px white;
+    text-shadow: 
+    /* -4px -4px plum, */
+    /* -3px -3px lightblue, */
+    -2px -2px white,
+    -1px 1px lightblue,
+    1px 1px  plum,
+    2px 2px  white,
+    3px 3px  lightseagreen,
+    4px 4px  white, 
+    5px 5px  white,
+    6px 6px plum;
     font-size: xx-large;
-     
-      /* text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5); -webkit-background-clip: text; */
-     -moz-background-clip: text;
-          background-clip: text;
-          background-color: rgb(113, 153, 226);
-   mix-blend-mode:hard-light;
+    -moz-background-clip: text;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-color: rgb(113, 153, 226);
+    mix-blend-mode: hard-light;
 }
 
 

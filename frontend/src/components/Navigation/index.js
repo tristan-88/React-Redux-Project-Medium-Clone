@@ -1,14 +1,22 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import * as sessionActions from '../../store/session'
 import LoginFormModal from '../LoginFormModal'
+import SignupFormModal from '../SignFormModal'
 import "./Navigation.css";
 
 function Navigation({ isLoaded }) {
 	const sessionUser = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
+
+	 const history = useHistory();
+
+		const routeChange = () => {
+			let path = `/mainpage`;
+			history.push(path);
+		};
 
 	const onClick = () => dispatch(sessionActions.demoLogin());
 
@@ -19,11 +27,8 @@ function Navigation({ isLoaded }) {
 		sessionLinks = (
 			<div>
 				<LoginFormModal />
-					<div className="icon_div">
-						<NavLink to="/signup" className="signup-btn">
-							{" Sign Up "}
-						</NavLink>
-					</div>
+				<SignupFormModal />
+					
 					<div className="icon_div">
 						<NavLink exact to="/mainpage" onClick={onClick} className="demo-btn">
 							Demo Log in
@@ -59,12 +64,14 @@ function Navigation({ isLoaded }) {
 
 				<i className="fas fa-dragon"></i>
 				<input className="input-item" type="checkbox"></input>
+				
 				<ul id="menu">
 					<NavLink exact to="/" style={{ textDecoration: "none" }}>
 						Home
 					</NavLink>
 					{isLoaded && sessionLinks}
 				</ul>
+				
 			</div>
 		</nav>
 	);

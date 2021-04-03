@@ -1,0 +1,31 @@
+.sign_up_form{
+ /* display:flex;
+    text-align-last: justify;
+    justify-content: space-evenly;
+    height: 500px;
+    align-items: center; */
+   
+}
+
+.sign_up_form_container{
+    font-size: large;
+    display: inline-block;
+    padding: 20px;
+}
+
+.sign_div,
+.user-btn_div{
+     font-size: 16px;
+     color: plum;
+    text-shadow: -1px 3px 3px black,
+				  3px 3px 3px black,
+				  3px -1px 0 black,
+				  -1px -1px 0 black; 
+    font-weight: bold;
+
+}
+
+.error_message{
+color: red;
+font-size: 100px;
+}

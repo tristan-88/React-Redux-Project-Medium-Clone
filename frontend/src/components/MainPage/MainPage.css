@@ -1,5 +1,5 @@
 .main-page-div{
-     background-image: url('../../project-items/4hRzp7H7kPe85oW7cI0ThA.jpeg');
+     background-image: url('../../project-items/wallpapersden.com_valkyries-magic-the-gathering_3840x2160.jpg');
     position: absolute;
     top: 0;
     left: 0;
@@ -13,3 +13,42 @@
     /* opacity: 0.6; 
     filter: alpha(opacity=60); */
 }
+
+.card-name-div{
+    font-size: 20px;
+     color: white;
+     font-weight: bold;
+    text-shadow: -1px 3px 3px black,
+				  3px 3px 3px black,
+				  3px -1px 0 black,
+				  -1px -1px 0 black; 
+    
+}
+
+.card-div{
+    text-align: center;
+    margin: 5px;
+    align-self: center;
+    
+}
+
+.cards-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+    height: 500px;
+    justify-content: center;
+    overflow-x: none;
+    
+}
+
+.card-img{
+  max-width: 250px;
+  padding: 1rem;
+  position: relative;
+  background: linear-gradient(to right, lightblue, plum);
+  padding: 3px;
+  border-radius: 15px;
+  margin: 3px;
+}
+

@@ -4,6 +4,8 @@ import * as sessionActions from "../../store/session";
 import { useDispatch} from "react-redux";
 //import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
+import SignupForm from "../SignFormModal/SignupForm"
+import { Modal } from "../../context/Modal";
 
 function LoginForm() {
 	const dispatch = useDispatch();
@@ -11,6 +13,7 @@ function LoginForm() {
 	const [credential, setCredential] = useState("");
 	const [password, setPassword] = useState("");
 	const [errors, setErrors] = useState([]);
+	const [showModal, setShowModal] = useState(false)
 
 	//if (sessionUser) return <Redirect to="/" />;
 
@@ -26,47 +29,50 @@ function LoginForm() {
 	};
 
 	return (
-		<section className="log_in_form">
-			<div className="log_in_container">
-
+		<div className="log_in_container">
 			<h2 className="log_in_h2">Log In</h2>
 			<form onSubmit={handleSubmit}>
 				<ul>
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
-						))}
-						
+					))}
 				</ul>
-					<div>
-				<label>
-					{'Username or Email '}
-					<input
-						type="text"
-						value={credential}
-						onChange={(e) => setCredential(e.target.value)}
-						required
-						/>
-				</label>
-				</div>
 				<div>
-
-				<label>
-					{'Password '}
-					<input
-						type="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-						required
+					<label>
+						{"Username or Email "}
+						<input
+							type="text"
+							value={credential}
+							onChange={(e) => setCredential(e.target.value)}
+							required
 						/>
 					</label>
-					<div className="log_in_sbm_btn">
-
-				<button type="submit">Log In</button>
-					</div>
-					</div>
+				</div>
+				<div>
+					<label>
+						{"Password "}
+						<input
+							type="password"
+							value={password}
+							onChange={(e) => setPassword(e.target.value)}
+							required
+						/>
+					</label>
+				</div>
+				<div className="log_in_sbm_btn">
+					<button type="submit">Log In</button>
+				</div>
+				<div>Not a user? </div>
+				<button className="sign-log_div" onClick={() => setShowModal(true)}>
+					Sign Up
+				</button>
+				{showModal && (
+					<Modal onClose={() => setShowModal(false)}>
+						<SignupForm />
+					</Modal>
+				)}
 			</form>
 		</div>
-		</section>
 	);
 }
 
