@@ -4,13 +4,25 @@ const { Comment } = require("../../db/models");
 
 const router = express.Router();
 
+router.get(
+    '/',
+    asyncHandler(async (req, res) => {
+        const comments = await Comment.findAll({
+            attributes: ['id', "content", "userId", "mgtCardId"]
+        });
+        return res.json({
+            comments,
+        });
+    })
+);
+
 router.post(
     '/',
     asyncHandler(async (req, res,next) => {
         const userId = req.body.userId;
         const mgtCardId = req.body.mgtCardId;
         const content = req.body.content;
-        const comment = await Comment.create({
+        await Comment.create({
             content,
             userId,
             mgtCardId,
@@ -21,6 +33,18 @@ router.post(
         return res.json({ comments });
     })
 );
+
+router.patch('/',
+    asyncHandler(async (req, res) => {
+        const commentId = req.body.commentId
+        const content = req.body.content
+        const comment = await Comment.findByPk(commentId)
+
+        comment.content = content
+        await comment.save()
+
+        res.json({msg:"success Hi mimi!"})
+}))
 
 router.delete('/',
     asyncHandler(async (req, res) => {

@@ -7,13 +7,17 @@ import Card from "./Card"
 import './MainPage.css'
 
 function MainPage() {
-
+    //reducers
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const mgtCardsState = useSelector(state => state?.mgtcardsRdcr) || {};
+  
+  //grabbing the values from the object to an array
   const cards = Object.values(mgtCardsState);
   console.log(cards);
   console.log(mgtCardsState);
+
+  //fetch call from api
   useEffect(() => {
     dispatch(showMgtCards());
   }, []);
@@ -31,14 +35,6 @@ function MainPage() {
     )
 }
     
-
-
-
- 
-   
-    
-    
-
 
 
 

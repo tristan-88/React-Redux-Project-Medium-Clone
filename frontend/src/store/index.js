@@ -4,10 +4,14 @@ import { restoreCSRF, csrfFetch } from "./csrf";
 import sessionReducer from "./session";
 import * as sessionActions from "./session";
 import mgtCardReducer from "./mgtcards"
+import commentReducer from "./comments"
+import answerReducer from "./answers"
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   mgtcardsRdcr: mgtCardReducer,
+  commentsRdcr: commentReducer,
+  answersRdcr: answerReducer,
   
 });
 
