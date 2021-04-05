@@ -1,13 +1,8 @@
-import React, { useEffect, useState} from "react";
+import React, { useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Link , useHistory, useParams} from "react-router-dom";
+import { useHistory, useParams} from "react-router-dom";
+import { postingComment } from "../../store/comments";
 import * as sessionActions from "../../store/session";
-import {
-	gettingComments,
-	updatingComment,
-	deletingComment,
-	postingComment,
-} from "../../store/comments";
 import "./AddCommentPage.css";
 
 function AddComment() {
@@ -17,7 +12,8 @@ function AddComment() {
     const [errors, setErrors] = useState([]);
     const history = useHistory();
     const dispatch = useDispatch();
-     const user= useSelector((state) => state.session.user);
+    const user= useSelector((state) => state.session.user);
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors([]);
@@ -29,15 +25,29 @@ function AddComment() {
 
 	return (
 		<div className="add-comment-form-div">
-            <form className='comment-form' onSubmit={handleSubmit}>
-                <ul>
-                    {errors.map((error, i) => (<li key={i}>{error}</li>))}
-                </ul>
-				<input className="input-div" onChange={(e)=>{setContent(e.target.value)}}></input>
-				<button type="submit">Submit</button>
-				<div onClick={()=> setContent('')}>Clear</div>
-				<div onClick={()=> history.goBack()}>Cancel</div>
-             </form>
+			<form className="comment-form" onSubmit={handleSubmit}>
+				<ul>
+					{errors.map((error, i) => (
+						<li key={i}>{error}</li>
+					))}
+				</ul>
+				<label className="add-form-labels">{"Comment:"}</label>
+				<input
+					className="input-div"
+					onChange={(e) => {
+						setContent(e.target.value);
+					}}
+				></input>
+				<button className="button-add-forms" type="submit">
+					Submit
+				</button>
+				<button className="button-add-forms" onClick={() => setContent("")}>
+					Cancel
+				</button>
+				<button className="button-add-forms" type="reset" defaultValue="Reset">
+					Reset
+				</button>
+			</form>
 		</div>
 	);
 }

@@ -41,7 +41,7 @@ function App() {
 					<Route exact path="/comment/:id">
 						<EditComment />
 					</Route>
-					<Route exact path="/card/:id/comment/:id/answer/">
+					<Route exact path="/card/:id/comment/:commentId/answer/">
 						<AddAnswerPage />
 					</Route>
 					<Route exact path="/answer/:id">

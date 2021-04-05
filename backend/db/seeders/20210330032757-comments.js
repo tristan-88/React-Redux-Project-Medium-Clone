@@ -39,6 +39,8 @@ module.exports = {
 
       Example:
       */
-   return queryInterface.bulkDelete('Comments', null, {});
+    return queryInterface.bulkDelete('Comments', null, {
+     truncate:true
+   });
   }
 };

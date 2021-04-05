@@ -56,7 +56,7 @@ export const updatingAnswer = (id, answer) => async (dispatch) => {
 	return response;
 };
 
- export const deletingAnswer = (answerId, cardId, mgtcardState) => async (dispatch) => {
+ export const deletingAnswer = (answerId) => async (dispatch) => {
      const response = await csrfFetch('/api/answers', {
          method: "DELETE",
          body: JSON.stringify({ answerId })
