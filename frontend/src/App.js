@@ -7,8 +7,8 @@ import MainPage from './components/MainPage';
 import SplashPage from './components/SplashPage';
 import CardPage from './components/CardPage';
 import EditComment from './components/EditComment';
-import AddComment from "./components/AddCommentPage";
-import AddAnswer from "./components/AddAnswerPage"
+import AddCommentPage from "./components/AddCommentPage";
+import AddAnswerPage from "./components/AddAnswerPage"
 import EditAnswer from './components/EditAnswer';
 import * as sessionActions from './store/session';
 
@@ -33,20 +33,20 @@ function App() {
 						<MainPage />
 					</Route>
 					<Route exact path="/card/:id">
-					  <CardPage />
-				  </Route>
-				  <Route exact path="/add/comment">
-					  <AddComment />
-				  </Route>
-					<Route  path="/edit/comment">
+						<CardPage />
+					</Route>
+					<Route exact path="/card/:id/post/comment/">
+						<AddCommentPage />
+					</Route>
+					<Route exact path="/comment/:id">
 						<EditComment />
-				  </Route>
-				  <Route exact path="/add/answer">
-						<AddAnswer />
-				  </Route>
-				  <Route exact path="edit/answer">
-					 <EditAnswer />
-				  </Route>
+					</Route>
+					<Route exact path="/card/:id/comment/:id/answer/">
+						<AddAnswerPage />
+					</Route>
+					<Route exact path="/answer/:id">
+						<EditAnswer />
+					</Route>
 				</Switch>
 			)}
 		</>

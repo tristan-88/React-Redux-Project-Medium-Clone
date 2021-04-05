@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {useParams, Link} from "react-router-dom"
 import { deletingAnswer } from "../../store/answers";
 import { showMgtCards } from "../../store/mgtcards";
-import EditComment from "./"
+import EditAnswer from '../EditAnswer'
 import Card from "../MainPage/Card"
 import './CardPage.css'
 
@@ -30,7 +30,7 @@ function CardPage(props) {
 				</div>
 
 				<div className="comments_and_answer-div">
-					<Link exact to="/post/comment">
+                <Link exact to={`/card/${card?.id}/post/comment`}>
 						<button className="post_comment_btn">Add Comment</button>
 					</Link>
 					{card
@@ -38,10 +38,10 @@ function CardPage(props) {
 								<div className="comment-container">
 									<div className="comment-div" key={comment.id}>
 										{comment?.content}
-										{/* <Link exact to={`/card/${card.id}/edit/comment`}> */}
+										<Link exact to={`/comment/${comment.id}`}>
 											<button className="edit_comment_btn">Edit Comment</button>
-										{/* </Link> */}
-										<Link exact to={`/card/${card.id}/add/answer`}>
+										</Link>
+										<Link exact to={`/card/${card.id}/comment/${comment.id}/answer`}>
 											<button className="add_reply_to_comment_btn">
 												Reply
 											</button>
@@ -54,7 +54,7 @@ function CardPage(props) {
 												<div className="answer-div" key={answer.id}>
 													{answer?.answer}
 												</div>
-												<Link exact to={`/card/${answer.id}/edit/answer/${answer.id}`}>
+												<Link exact to={`/card/${answer.id}/answer/${answer.id}`}>
 													<button className="edit_answer_btn">
 														Edit Reply
 													</button>

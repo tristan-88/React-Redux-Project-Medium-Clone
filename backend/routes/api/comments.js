@@ -30,7 +30,7 @@ router.post(
         const comments = await Comment.findAll({
             where: { mgtCardId }
         });
-        return res.json({ comments });
+        // return res.json({ comments });
     })
 );
 

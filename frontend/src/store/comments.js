@@ -65,7 +65,7 @@ export const deletingComment = (commentId) => async (dispatch) => {
 	return response;
 };
 
-export const postingAnswer = (content, mgtCardId, userId) => async (
+export const postingComment = (content, mgtCardId, userId) => async (
 	dispatch
 ) => {
 	const response = await csrfFetch("/api/comments", {
