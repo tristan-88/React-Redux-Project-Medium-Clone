@@ -15,4 +15,4 @@
 
 ## Database Schema
 
-![Schema-img](https://github.com/tristan-88/React-Redux-Project-Quora-Clone/blob/main/frontend/public/project-items/Mgt-Cards%20Channel%20Schema.png?raw=true)
+![Schema-img](https://raw.githubusercontent.com/tristan-88/React-Redux-Project-Quora-Clone/main/frontend/src/project-items/Mgt-Cards%20Channel%20Schema.png)
