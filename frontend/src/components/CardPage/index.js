@@ -2,7 +2,7 @@ import React, { useEffect, useState, } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom"
 import { deletingAnswer } from "../../store/answers";
-import { deletingComment } from "../../store/comments";
+import { deletingComment, updatingComment } from "../../store/comments";
 import { showMgtCards } from "../../store/mgtcards";
 import EditAnswer from '../EditAnswer'
 import Card from "../MainPage/Card"
@@ -15,6 +15,7 @@ function CardPage(props) {
 	const card = useSelector((state) => state?.mgtcardsRdcr[id]);
 	const answerState = useSelector((state) => state?.answersRdcr);
 	const commentState = useSelector((state) => state.commentsRdcr);
+	const [showCommentEditForm, setShowCommentEditForm] = useState('');
 	const [editForm, setEditForm] = useState('');
 
 	useEffect(() => {
@@ -29,8 +30,19 @@ function CardPage(props) {
 		dispatch(deletingComment(commentId));
 	};
 
-	const handleEditComment = (commentId) => {
-		setEditForm(`edit-comment-${commentId}`);
+	const handleShowEditCommentForm = (commentId, content) => {
+		setShowCommentEditForm(`edit-comment-${commentId}`);
+		setEditForm(content);
+	};
+
+	const handleCancel = () => {
+		setShowCommentEditForm('');
+		setEditForm('');
+	};
+
+	const handleCommentEdit = (commentId) => {
+		dispatch(updatingComment(commentId, editForm));
+		handleCancel();
 	};
 
 	return (
@@ -77,20 +89,32 @@ function CardPage(props) {
 							? card.Comments.map((comment, idx) => (
 								<div className="comment-container" key={`commend-container-${idx}`}>
 									<div className="comment-div" key={comment.id}>
-										<div className="comment-container-user">
-											<p>{`User commented at: ${comment.updatedAt}`}</p>
-										</div>
-										<p>{comment?.content}</p>
+										{showCommentEditForm !== `edit-comment-${comment.id}` &&
+											<>
+												<p>{`User commented at: ${comment.updatedAt}`}</p>
+												<p>{comment?.content}</p>
+											</>
+										}
+										{showCommentEditForm === `edit-comment-${comment.id}` &&
+											<>
+												<textarea
+													value={editForm}
+													onChange={(e) => { setEditForm(e.target.value) }}
+												/>
+												<button onClick={() => { handleCommentEdit(comment.id) }}>Save changes</button>
+												<button onClick={handleCancel}>Cancel</button>
+											</>
+										}
 										<Link
 											exact
 											to={`/card/${card.id}/comment/${comment.id}/answer`}
 										>
 											<button className="button-add-forms" key={`reply-${idx}`}>Reply</button>
 										</Link>
-										{editForm !== `edit-comment-${comment.id}` && comment.userId === sessionUser.id &&
+										{showCommentEditForm !== `edit-comment-${comment.id}` && comment.userId === sessionUser.id &&
 											<button
 												className="button-add-forms"
-												onClick={() => { handleEditComment(comment.id) }}
+												onClick={() => { handleShowEditCommentForm(comment.id, comment.content) }}
 											>
 												Edit Comment
 											</button>

@@ -8,7 +8,7 @@ const DELETE_ANSWER = "session/deleteAnswer"
 const getAnswer = (answers) => {
     return {
         type: GET_ANSWERS,
-        payload:answers
+        payload: answers
     }
 }
 
@@ -27,7 +27,7 @@ const updateAnswer = (answerId) => {
     }
 }
 
-const deleteAnswer = (answerId,cardId, mgtcardState) => {
+const deleteAnswer = (answerId, cardId, mgtcardState) => {
     return {
         type: DELETE_ANSWER,
         payload: [answerId, cardId, mgtcardState]
@@ -37,50 +37,50 @@ const deleteAnswer = (answerId,cardId, mgtcardState) => {
 
 //we use for dispatch
 export const gettingAnswers = () => async (dispatch) => {
-	const response = await csrfFetch("/api/comments");
-	const data = await response.json();
-	dispatch(getAnswer(data.answers));
-	return response;
+    const response = await csrfFetch("/api/comments");
+    const data = await response.json();
+    dispatch(getAnswer(data.answers));
+    return response;
 };
 
 export const updatingAnswer = (id, answer) => async (dispatch) => {
-	const response = await csrfFetch("/api/answers", {
-		method: "PATCH",
-		body: JSON.stringify({
-			answerId: id,
-			answer: answer,
-		}),
-	});
+    const response = await csrfFetch("/api/answers", {
+        method: "PATCH",
+        body: JSON.stringify({
+            answerId: id,
+            answer: answer,
+        }),
+    });
 
-	dispatch(updateAnswer(id, answer));
-	return response;
+    dispatch(updateAnswer(id, answer));
+    return response;
 };
 
- export const deletingAnswer = (answerId) => async (dispatch) => {
-     const response = await csrfFetch('/api/answers', {
-         method: "DELETE",
-         body: JSON.stringify({ answerId })
-        
-     });
-     dispatch(deleteAnswer(answerId))
-     return response;
- }
+export const deletingAnswer = (answerId) => async (dispatch) => {
+    const response = await csrfFetch('/api/answers', {
+        method: "DELETE",
+        body: JSON.stringify({ answerId })
+
+    });
+    dispatch(deleteAnswer(answerId))
+    return response;
+}
 
 export const postingAnswer = (answer, commentId, userId) => async (dispatch) => {
     const response = await csrfFetch("/api/answers", {
-			method: "POST",
-			body: JSON.stringify({
-				userId,
-				answer,
-				commentId,
-			}),
+        method: "POST",
+        body: JSON.stringify({
+            userId,
+            answer,
+            commentId,
+        }),
     });
     const newAnswer = await response.json();
     dispatch(postAnswer(newAnswer))
 
     return newAnswer;
 }
- 
+
 
 const initialState = {};
 
@@ -100,10 +100,9 @@ const answerReducer = (state = initialState, action) => {
             newState.update = true
             return newState
         case DELETE_ANSWER:
-            return {...state, update: true}
+            return { ...state, update: true }
         default:
             return state
-
     }
 
 }
