@@ -112,6 +112,14 @@
   margin-bottom: 20px;
 }
 
+.answer-container {
+  margin-bottom: 15px;
+}
+
+.answer-container-user {
+  display: flex;
+}
+
 .card-container {
     display: flex;
     padding: 100px;

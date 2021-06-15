@@ -1,4 +1,4 @@
-import React, { useEffect, } from "react"
+import React, { useEffect, useState, } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom"
 import { deletingAnswer } from "../../store/answers";
@@ -10,10 +10,12 @@ import './CardPage.css'
 
 function CardPage(props) {
 	const id = useParams().id;
-	const dispatch = useDispatch()
+	const dispatch = useDispatch();
+	const sessionUser = useSelector((state) => state.session.user);
 	const card = useSelector((state) => state?.mgtcardsRdcr[id]);
 	const answerState = useSelector((state) => state?.answersRdcr);
 	const commentState = useSelector((state) => state.commentsRdcr);
+	const [editForm, setEditForm] = useState('');
 
 	useEffect(() => {
 		dispatch(showMgtCards());
@@ -25,6 +27,10 @@ function CardPage(props) {
 
 	const handleDeleteComment = (commentId) => {
 		dispatch(deletingComment(commentId));
+	};
+
+	const handleEditComment = (commentId) => {
+		setEditForm(`edit-comment-${commentId}`);
 	};
 
 	return (
@@ -71,30 +77,43 @@ function CardPage(props) {
 							? card.Comments.map((comment, idx) => (
 								<div className="comment-container" key={`commend-container-${idx}`}>
 									<div className="comment-div" key={comment.id}>
-										{comment?.content}
-										{/* <Link exact to={`/comment/${comment.id}`}>
-											<button className="edit_comment_btn">Edit Comment</button>
-										</Link> */}
+										<div className="comment-container-user">
+											<p>{`User commented at: ${comment.updatedAt}`}</p>
+										</div>
+										<p>{comment?.content}</p>
 										<Link
 											exact
 											to={`/card/${card.id}/comment/${comment.id}/answer`}
 										>
 											<button className="button-add-forms" key={`reply-${idx}`}>Reply</button>
 										</Link>
-										<button
-											className="button-add-forms"
-											key={`delete-${idx}`}
-											onClick={() => { handleDeleteComment(comment.id) }}
-										>
-											Delete Comment
-										</button>
+										{editForm !== `edit-comment-${comment.id}` && comment.userId === sessionUser.id &&
+											<button
+												className="button-add-forms"
+												onClick={() => { handleEditComment(comment.id) }}
+											>
+												Edit Comment
+											</button>
+										}
+										{comment.userId === sessionUser.id &&
+											<button
+												className="button-add-forms"
+												key={`delete-${idx}`}
+												onClick={() => { handleDeleteComment(comment.id) }}
+											>
+												Delete Comment
+											</button>
+										}
 									</div>
 									<div className="answerComments-div">
 										<p className="answerComments-text">Replies:</p>
 										{comment.AnswerComments.map((answer, idx) => (
 											<div className="answer-container" key={`answer-container-${idx}`}>
 												<div className="answer-div" key={answer.id}>
-													{answer?.answer}
+													<div className="answer-container-user">
+														<p>{`user replied at: ${answer.updatedAt}`}</p>
+													</div>
+													<p>{answer?.answer}</p>
 												</div>
 												{/* <Link
 													exact
@@ -104,15 +123,17 @@ function CardPage(props) {
 														Edit Reply
 													</button>
 												</Link> */}
-												<button
-													key={`delete-answer--${idx}`}
-													className="button-add-forms"
-													onClick={() => {
-														deleteAnswer(answer.id);
-													}}
-												>
-													Delete Reply
-												</button>
+												{answer.userId === sessionUser.id &&
+													<button
+														key={`delete-answer--${idx}`}
+														className="button-add-forms"
+														onClick={() => {
+															deleteAnswer(answer.id);
+														}}
+													>
+														Delete Reply
+													</button>
+												}
 											</div>
 										))}
 									</div>
