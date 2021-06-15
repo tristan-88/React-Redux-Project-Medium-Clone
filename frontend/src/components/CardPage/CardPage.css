@@ -8,7 +8,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    display: inline-block;  
+    display: inline-block;
     background-image: url('../../project-items/1107030654_preview_20190412172640_1.jpeg');
     display: flex;
   justify-content: center;
@@ -61,7 +61,7 @@
       backface-visibility: hidden;
       transition: 1s ease-in-out;
       -webkit-box-reflect: below 0
-    linear-gradient(transparent, transparent, 
+    linear-gradient(transparent, transparent,
     rgba(0, 0, 0, 0.4));
     }
       img {
@@ -83,20 +83,33 @@
         text-shadow: -1px 3px 3px black,
 				  3px 3px 3px black,
 				  3px -1px 0 black,
-				  -1px -1px 0 black; 
+				  -1px -1px 0 black;
 }
 
-.comments_and_answer-div{   
+.comments_and_answer-div{
     font-size: 16px;
     color: white;
     font-weight: bold;
     text-shadow: -1px 3px 3px black,
 				  3px 3px 3px black,
 				  3px -1px 0 black,
-				  -1px -1px 0 black; 
+				  -1px -1px 0 black;
                   perspective: 800px;
      text-transform: capitalize;
-    
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(128, 128, 128, 0.753);
+  padding: 10px;
+}
+
+.comment-div {
+  border-top: 1px solid greenyellow;
+  border-bottom: 1px solid rgb(47, 130, 255);
+  margin-top: 20px;
+}
+
+.answerComments-text {
+  margin-bottom: 20px;
 }
 
 .card-container {
@@ -128,11 +141,10 @@
 }
 
 .button-add-forms:hover{
-    
+
     text-shadow: 0px 0px 6px rgba(255, 255, 255, 1);
     -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.4s ease 0s;
 
 }
-

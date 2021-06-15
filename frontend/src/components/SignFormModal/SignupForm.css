@@ -4,7 +4,7 @@
     justify-content: space-evenly;
     height: 500px;
     align-items: center; */
-   
+
 }
 
 .sign_up_form_container{
@@ -20,9 +20,20 @@
     text-shadow: -1px 3px 3px black,
 				  3px 3px 3px black,
 				  3px -1px 0 black,
-				  -1px -1px 0 black; 
+				  -1px -1px 0 black;
     font-weight: bold;
+}
 
+.user-btn_div,
+.user-name-div:hover,
+.user-email-div:hover {
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.user-logout-btn:hover {
+    cursor: pointer;
+    background-color: gray;
 }
 
 .error_message{

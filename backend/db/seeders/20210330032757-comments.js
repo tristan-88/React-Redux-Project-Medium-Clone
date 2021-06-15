@@ -5,10 +5,10 @@ const random = new Random();
 // const { mgtCards } = require('./20210329194950-mgtcard')
 module.exports = {
   up: (queryInterface, Sequelize) => {
-		/*
+    /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.
-       
+
         content text
         userId int
         mgtCardsId int
@@ -20,17 +20,16 @@ module.exports = {
       }], {});
     */
     let comments = []
-    for (let i = 0; i < 80; i++){
+    for (let i = 0; i < 1000; i++) {
       comments.push({
         content: faker.lorem.paragraph(),
         userId: random.integer(1, 3),
         mgtCardId: random.integer(1, 80)
-        
       });
     }
-    
+
     return queryInterface.bulkInsert('Comments', comments, {});
-	},
+  },
 
   down: (queryInterface, Sequelize) => {
     /*
@@ -40,7 +39,7 @@ module.exports = {
       Example:
       */
     return queryInterface.bulkDelete('Comments', null, {
-     truncate:true
-   });
+      truncate: true
+    });
   }
 };

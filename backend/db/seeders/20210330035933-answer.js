@@ -6,16 +6,16 @@ const random = new Random();
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-  let answerComments = [];
-	for (let i = 0; i < 100; i++) {
-		answerComments.push({
-		  answer: faker.lorem.paragraph(),
-			userId: random.integer(1, 3),
-			commentId: random.integer(1, 80),
-		});
-	}
+    let answerComments = [];
+    for (let i = 0; i < 5000; i++) {
+      answerComments.push({
+        answer: faker.lorem.paragraph(),
+        userId: random.integer(1, 3),
+        commentId: random.integer(1, 1000),
+      });
+    }
 
-	return queryInterface.bulkInsert("AnswerComments", answerComments, {});
+    return queryInterface.bulkInsert("AnswerComments", answerComments, {});
   },
 
   down: (queryInterface, Sequelize) => {
@@ -26,7 +26,7 @@ module.exports = {
       Example:
       */
     return queryInterface.bulkDelete("AnswerComments", null, {
-    truncate:true
-   });
+      truncate: true
+    });
   }
 };

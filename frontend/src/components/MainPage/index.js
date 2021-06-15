@@ -7,34 +7,32 @@ import Card from "./Card"
 import './MainPage.css'
 
 function MainPage() {
-    //reducers
+  //reducers
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const mgtCardsState = useSelector(state => state?.mgtcardsRdcr) || {};
-  
+
   //grabbing the values from the object to an array
   const cards = Object.values(mgtCardsState);
-  console.log(cards);
-  console.log(mgtCardsState);
 
   //fetch call from api
   useEffect(() => {
     dispatch(showMgtCards());
   }, []);
   //Logout re-direct
-  
-  
+
+
   return (
     <div className="main-page-div">
-     
+
       {sessionUser && <div className="cards-container">
         {cards.map((card) => <Card card={card} key={card.id} />)}
       </div>}
       {sessionUser ? null : <Redirect exact to="/" />}
     </div>
-    )
+  )
 }
-    
+
 
 
 
