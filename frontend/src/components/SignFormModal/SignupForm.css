@@ -15,7 +15,7 @@
 
 .sign_div,
 .user-btn_div{
-     font-size: 1.2em;
+     font-size: 2em;
      color: white;
     text-shadow: -1px 3px 3px black,
 				  3px 3px 3px black,
@@ -28,7 +28,7 @@
 .user-btn_div,
 .user-name-div:hover,
 .user-email-div:hover {
-    font-size: 1.2rem;
+    font-size: 2em;
     cursor: pointer;
 }
 
