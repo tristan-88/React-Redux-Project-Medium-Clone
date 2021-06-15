@@ -17,10 +17,11 @@ function CardPage(props) {
 	const commentState = useSelector((state) => state.commentsRdcr);
 	const [showCommentEditForm, setShowCommentEditForm] = useState('');
 	const [editForm, setEditForm] = useState('');
-
+	const comments = useSelector((state) => state?.mgtcardsRdcr[id].Comments)
+	
 	useEffect(() => {
 		dispatch(showMgtCards());
-	}, [answerState, commentState]);
+	}, [answerState, commentState, comments.length]);
 
 	const deleteAnswer = (answerId) => {
 		dispatch(deletingAnswer(answerId))
@@ -101,8 +102,8 @@ function CardPage(props) {
 													value={editForm}
 													onChange={(e) => { setEditForm(e.target.value) }}
 												/>
-												<button onClick={() => { handleCommentEdit(comment.id) }}>Save changes</button>
-												<button onClick={handleCancel}>Cancel</button>
+												<button onClick={() => { handleCommentEdit(comment.id) }}className="save-changes">Save changes</button>
+												<button onClick={handleCancel}  className="cancel-edit">Cancel</button>
 											</>
 										}
 										<Link
