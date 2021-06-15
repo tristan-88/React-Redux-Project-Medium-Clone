@@ -28,29 +28,29 @@ function ProfileButton({ user }) {
 	const logout = (e) => {
 		e.preventDefault();
 		try {
-   			dispatch(sessionActions.logout());
-    		history.push("/");
-  		} catch (e) {
-    		alert(e.message);
-  		}
-		
+			dispatch(sessionActions.logout());
+			history.push("/");
+		} catch (e) {
+			alert(e.message);
+		}
+
 	};
-			
+
 	return (
 		<div className="show-menu-container">
-			
-				<div
-					onClick={openMenu}
-					className="user-btn_div"
+
+			<div
+				onClick={openMenu}
+				className="user-btn_div"
 			>{"User ▼"}</div>
-			
+
 			{showMenu && (
 				<div>
 					<div>
 						<div className="user-name-div">User:{user.username}</div>
 						<div className="user-email-div">Email:{user.email}</div>
 						<div>
-							<button onClick={logout}>Log Out</button>
+							<button className="user-logout-btn" onClick={logout}>Log Out</button>
 						</div>
 					</div>
 				</div>

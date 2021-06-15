@@ -1,6 +1,6 @@
-import React, {useEffect, } from "react"
+import React, { useEffect, } from "react"
 import { useDispatch, useSelector } from "react-redux";
-import {useParams, Link} from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { deletingAnswer } from "../../store/answers";
 import { showMgtCards } from "../../store/mgtcards";
 import EditAnswer from '../EditAnswer'
@@ -8,32 +8,30 @@ import Card from "../MainPage/Card"
 import './CardPage.css'
 
 function CardPage(props) {
-    const id = useParams().id;
-    console.log(id)
-    const dispatch = useDispatch()
-    const card = useSelector((state) => state?.mgtcardsRdcr[id]);
-    const answerState = useSelector((state)=> state?.answersRdcr)
-    console.log(card)
-            useEffect(() => {
-                dispatch(showMgtCards());
-            }, [answerState]);
-    const deleteAnswer = (answerId) => {
-        dispatch(deletingAnswer(answerId))
-    }
+	const id = useParams().id;
+	const dispatch = useDispatch()
+	const card = useSelector((state) => state?.mgtcardsRdcr[id]);
+	const answerState = useSelector((state) => state?.answersRdcr)
+	useEffect(() => {
+		dispatch(showMgtCards());
+	}, [answerState]);
+	const deleteAnswer = (answerId) => {
+		dispatch(deletingAnswer(answerId))
+	}
 	return (
 		<div className="card-page-container">
 			<div className="card_and_comments_container">
 				<div className="card-container">
-					<div class="scene">
-						<div class="card">
-							<div class="card__face card__face--front">
+					<div Name="scene">
+						<div className="card">
+							<div className="card__face card__face--front">
 								<div className="card_img-div">
 									{card ? (
 										<img src={`${card.cardImg}`} className="card_img-div" />
 									) : null}
 								</div>
 							</div>
-							<div class="card__face card__face--back">
+							<div className="card__face card__face--back">
 								<div className="card_name-div">
 									Name: {card ? card.cardName : null}
 								</div>
@@ -62,29 +60,29 @@ function CardPage(props) {
 						</Link>
 						{card
 							? card.Comments.map((comment) => (
-									<div className="comment-container">
-										<div className="comment-div" key={comment.id}>
-											Comments: {comment?.content}
-											{/* <Link exact to={`/comment/${comment.id}`}>
+								<div className="comment-container">
+									<div className="comment-div" key={comment.id}>
+										Comments: {comment?.content}
+										{/* <Link exact to={`/comment/${comment.id}`}>
 											<button className="edit_comment_btn">Edit Comment</button>
 										</Link> */}
-											<Link
-												exact
-												to={`/card/${card.id}/comment/${comment.id}/answer`}
-											>
-												<button className="button-add-forms">Reply</button>
-											</Link>
-											<button className="button-add-forms">
-												Delete Comment
-											</button>
-										</div>
-										<div className="answerComments-div">
-											{comment.AnswerComments.map((answer) => (
-												<div className="answer-container">
-													<div className="answer-div" key={answer.id}>
-														Reply: {answer?.answer}
-													</div>
-													{/* <Link
+										<Link
+											exact
+											to={`/card/${card.id}/comment/${comment.id}/answer`}
+										>
+											<button className="button-add-forms">Reply</button>
+										</Link>
+										<button className="button-add-forms">
+											Delete Comment
+										</button>
+									</div>
+									<div className="answerComments-div">
+										{comment.AnswerComments.map((answer) => (
+											<div className="answer-container">
+												<div className="answer-div" key={answer.id}>
+													Reply: {answer?.answer}
+												</div>
+												{/* <Link
 													exact
 													to={`/card/${answer.id}/answer/${answer.id}`}
 													>
@@ -92,19 +90,19 @@ function CardPage(props) {
 														Edit Reply
 													</button>
 												</Link> */}
-													<button
-														className="button-add-forms"
-														onClick={() => {
-															deleteAnswer(answer.id);
-														}}
-													>
-														Delete Answer
-													</button>
-												</div>
-											))}
-										</div>
+												<button
+													className="button-add-forms"
+													onClick={() => {
+														deleteAnswer(answer.id);
+													}}
+												>
+													Delete Answer
+												</button>
+											</div>
+										))}
 									</div>
-							  ))
+								</div>
+							))
 							: null}
 					</div>
 				</div>
