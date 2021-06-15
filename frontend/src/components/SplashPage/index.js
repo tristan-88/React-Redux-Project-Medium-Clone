@@ -15,8 +15,10 @@ function SplashPage() {
             {session ? <Redirect exact to="/mainpage" /> : null}
         <div className="splash-body">
             <div className="h1-container">
-                <h1 className="h1-splash">WELCOME TO MGT-CARDS CHANNEL</h1>
-            </div>
+                    <h1 className="h1-splash">WELCOME TO MTG-CARDS CHANNEL</h1>
+                    <div>The Remote Gathering for all the "Magic The Gathering" card players come to socialize and mingle.</div>
+                </div>
+              
             </div>
         </>
     )

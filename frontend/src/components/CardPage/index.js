@@ -17,11 +17,11 @@ function CardPage(props) {
 	const commentState = useSelector((state) => state.commentsRdcr);
 	const [showCommentEditForm, setShowCommentEditForm] = useState('');
 	const [editForm, setEditForm] = useState('');
-	const comments = useSelector((state) => state?.mgtcardsRdcr[id].Comments)
+	// const comments = useSelector((state) => state?.mgtcardsRdcr[id].Comments)
 	
 	useEffect(() => {
 		dispatch(showMgtCards());
-	}, [answerState, commentState, comments.length]);
+	}, [answerState, commentState, ]);
 
 	const deleteAnswer = (answerId) => {
 		dispatch(deletingAnswer(answerId))

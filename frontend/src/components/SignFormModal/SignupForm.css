@@ -23,6 +23,7 @@
 				  -1px -1px 0 black;
     font-weight: bold;
     padding: 0 10vw;
+    cursor: pointer;
 }
 
 .user-btn_div,

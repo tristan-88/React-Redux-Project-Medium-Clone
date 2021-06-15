@@ -175,4 +175,8 @@ li:hover{
     padding: 0 10vw;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
+
+
+

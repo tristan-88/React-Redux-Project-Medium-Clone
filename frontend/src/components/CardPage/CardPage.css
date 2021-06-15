@@ -135,7 +135,9 @@
 .save-changes,
 .cancel-edit{
   font-size: larger;
- color: #fff !important;
+ 	color: white;
+	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
+		-1px -1px 0 black;
     text-transform: uppercase;
     text-decoration: none;
     background: lightblue;
@@ -144,7 +146,7 @@
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
-    margin: 3px;
+    margin: 0.2em;
     box-shadow: 0 1rem 1.25rem 0 rgb(22 75 195 / 50%), 0 -0.25rem 1.5rem rgb(110 15 155) inset, 0 0.75rem 0.5rem rgb(255 255 255 / 40%) inset, 0 0.25rem 0.5rem 0 rgb(180 70 207) inset;
 }
 

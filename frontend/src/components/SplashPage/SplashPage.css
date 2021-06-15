@@ -15,9 +15,9 @@
 }
 
 .h1-container{
-       display: flex;
+    display: flex;
     position: absolute;
-    height: 100%;
+    height: 70vh;
     justify-content: center;
     width: 100%;
     align-items: center;
@@ -39,7 +39,8 @@
     -webkit-background-clip: text;
     background-clip: text;
     background-color: rgb(113, 153, 226);
-    mix-blend-mode: hard-light;
+    padding: 1em;
+    flex-direction: column;
 }
 
 
