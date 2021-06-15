@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Comment = sequelize.define(
+	const Comment = sequelize.define(
 		"Comment",
 		{
 			content: {
@@ -15,10 +15,16 @@ module.exports = (sequelize, DataTypes) => {
 		},
 		{}
 	);
-  Comment.associate = function(models) {
-    Comment.belongsTo(models.MgtCard, { foreignKey: "mgtCardId" });
-    Comment.belongsTo(models.User, { foreignKey: "userId" });
-    Comment.hasMany(models.AnswerComment, { foreignKey:"commentId"});
-  };
-  return Comment;
+	Comment.associate = function (models) {
+		Comment.belongsTo(models.MgtCard, {
+			foreignKey: "mgtCardId"
+		});
+		Comment.belongsTo(models.User, { foreignKey: "userId" });
+		Comment.hasMany(models.AnswerComment, {
+			onDelete: 'cascade',
+			foreignKey: "commentId",
+			hooks: true
+		});
+	};
+	return Comment;
 };

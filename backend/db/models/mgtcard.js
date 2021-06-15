@@ -56,7 +56,11 @@ module.exports = (sequelize, DataTypes) => {
 		{}
 	);
 	MgtCard.associate = function (models) {
-		MgtCard.hasMany(models.Comment, { foreignKey: "mgtCardId" });
+		MgtCard.hasMany(models.Comment, {
+			onDelete: 'cascade',
+			foreignKey: "mgtCardId",
+			hooks: true
+		});
 	};
 	return MgtCard;
 };

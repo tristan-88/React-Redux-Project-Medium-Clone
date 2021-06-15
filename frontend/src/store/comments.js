@@ -102,9 +102,7 @@ const commentReducer = (state = initialState, action) => {
 
             return newState
         case DELETE_COMMENT:
-            newState = Object.assign({}, state)
-
-            return newState
+            return { ...state, update: true }
         default:
             return state
 

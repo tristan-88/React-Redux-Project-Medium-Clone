@@ -13,10 +13,11 @@ function CardPage(props) {
 	const dispatch = useDispatch()
 	const card = useSelector((state) => state?.mgtcardsRdcr[id]);
 	const answerState = useSelector((state) => state?.answersRdcr);
+	const commentState = useSelector((state) => state.commentsRdcr);
 
 	useEffect(() => {
 		dispatch(showMgtCards());
-	}, [answerState]);
+	}, [answerState, commentState]);
 
 	const deleteAnswer = (answerId) => {
 		dispatch(deletingAnswer(answerId))
