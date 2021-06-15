@@ -1,0 +1,42 @@
+.footer-container {
+	/* position: sticky; */
+	display: flex;
+	/* margin-top: 75px;
+	margin-bottom: 20px;
+	margin-left: -7px;
+	margin-right: -7px; */
+	justify-content: space-evenly;
+	max-height: 300px;
+	bottom: 0;
+	padding: 1em;
+    background: none;
+}
+
+.fab {
+	font-size: 3em;
+	color: white;
+	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
+		-1px -1px 0 black;
+}
+
+.fas.fa-user-secret{
+	font-size: 3em;
+	color: white;
+	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
+		-1px -1px 0 black;
+}
+
+.linkedinLink,
+.githubLink,
+.porfolio-link {
+	text-decoration: none;
+	font-size: 2em;
+}
+
+.about-me-div {
+	font-size: 3em;
+	color: white;
+	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
+		-1px -1px 0 black;
+	align-self: center;
+}

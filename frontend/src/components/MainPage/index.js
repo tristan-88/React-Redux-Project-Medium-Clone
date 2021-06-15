@@ -5,6 +5,7 @@ import * as sessionActions from "../../store/session";
 import { showMgtCards } from "../../store/mgtcards";
 import Card from "./Card"
 import './MainPage.css'
+import Footer from './../Footer/Footer'
 
 function MainPage() {
   //reducers
@@ -23,13 +24,17 @@ function MainPage() {
 
 
   return (
+    <>
     <div className="main-page-div">
 
       {sessionUser && <div className="cards-container">
         {cards.map((card) => <Card card={card} key={card.id} />)}
       </div>}
       {sessionUser ? null : <Redirect exact to="/" />}
-    </div>
+    
+      </div>
+
+  </>
   )
 }
 
