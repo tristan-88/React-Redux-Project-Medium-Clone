@@ -15,13 +15,14 @@
 
 .sign_div,
 .user-btn_div{
-     font-size: 16px;
-     color: plum;
+     font-size: 1.2em;
+     color: white;
     text-shadow: -1px 3px 3px black,
 				  3px 3px 3px black,
 				  3px -1px 0 black,
 				  -1px -1px 0 black;
     font-weight: bold;
+    padding: 0 10vw;
 }
 
 .user-btn_div,
@@ -39,4 +40,14 @@
 .error_message{
 color: red;
 font-size: 100px;
+}
+
+input, textarea {
+    border: solid 1px #E5E5E5;
+    outline: 0;
+    font: normal 13px/100% Verdana, Tahoma, sans-serif;
+    width: 100%;
+    background: #FFFFFF;
+    box-sizing: border-box;
+    margin: .5em;
 }

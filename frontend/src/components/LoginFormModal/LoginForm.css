@@ -1,43 +1,59 @@
-#modal-content{
-    background-image:url('../../../src/project-items/4hRzp7H7kPe85oW7cI0ThA.jpeg');
-    width: 500px;
-    height: 500px;
-    text-align: center;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: rgb(201, 187, 187);
-    text-shadow: -1px 3px 3px black,
-				  3px 3px 3px black,
-				  3px -1px 0 black,
-				  -1px -1px 0 black; 
-    font-weight: bolder;
-    background-blend-mode: luminosity;
-    background-color: black;
-
+#modal-content {
+	background-image: url("../../../src/project-items/4hRzp7H7kPe85oW7cI0ThA.jpeg");
+	width: 500px;
+	height: 500px;
+	text-align: center;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: rgb(236, 232, 221);
+	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
+		-1px -1px 0 black;
+	font-weight: bolder;
+	/* background-blend-mode: luminosity; */
+	background-color: black;
+   margin:  .5em;
+   font-size: 2em;
 }
 
-.log_in_container{
-    /* display:flex;
+.log_in_container {
+	/* display:flex;
     text-align-last: justify;
     justify-content: space-evenly;
     height: 500px;
     align-items: center;
     font-size: large; */
-    font-size: large;
-    max-width: min-content;
-    display: inline-block;
-    height: inherit;
-    width: inherit;
+	font-size: large;
+	/* max-width: min-content; */
+	display: inline-block;
+	height: inherit;
+	width: 20vw;
 }
 
-.log_div{
-    font-size: 16px;
-     color: plum;
-    text-shadow: -1px 3px 3px black,
-				  3px 3px 3px black,
-				  3px -1px 0 black,
-				  -1px -1px 0 black; 
-                  font-weight: bold;
-
+.log_div {
+	font-size: 1.2em;
+	color: white;
+	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
+		-1px -1px 0 black;
+	font-weight: bold;
+	padding: 0 10vw;
 }
+
+.demo-btn{
+    color: rgb(240, 240, 231);
+    margin: 0.5em;
+}
+
+.icon_div{
+    margin: 1em;
+}
+
+/* input, textarea {
+    padding: 9px;
+    border: solid 1px #E5E5E5;
+    outline: 0;
+    font: normal 13px/100% Verdana, Tahoma, sans-serif;
+    width: 10vw;
+    background: #FFFFFF;
+    box-sizing: border-box;
+} */
