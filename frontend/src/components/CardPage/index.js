@@ -22,7 +22,7 @@ function CardPage(props) {
 		<div className="card-page-container">
 			<div className="card_and_comments_container">
 				<div className="card-container">
-					<div Name="scene">
+					<div className="scene">
 						<div className="card">
 							<div className="card__face card__face--front">
 								<div className="card_img-div">
@@ -59,8 +59,8 @@ function CardPage(props) {
 							<button className="button-add-forms">Add Comment</button>
 						</Link>
 						{card
-							? card.Comments.map((comment) => (
-								<div className="comment-container">
+							? card.Comments.map((comment, idx) => (
+								<div className="comment-container" key={`commend-container-${idx}`}>
 									<div className="comment-div" key={comment.id}>
 										Comments: {comment?.content}
 										{/* <Link exact to={`/comment/${comment.id}`}>
@@ -70,15 +70,15 @@ function CardPage(props) {
 											exact
 											to={`/card/${card.id}/comment/${comment.id}/answer`}
 										>
-											<button className="button-add-forms">Reply</button>
+											<button className="button-add-forms" key={`reply-${idx}`}>Reply</button>
 										</Link>
-										<button className="button-add-forms">
+										<button className="button-add-forms" key={`delete-${idx}`}>
 											Delete Comment
 										</button>
 									</div>
 									<div className="answerComments-div">
-										{comment.AnswerComments.map((answer) => (
-											<div className="answer-container">
+										{comment.AnswerComments.map((answer, idx) => (
+											<div className="answer-container" key={`answer-container-${idx}`}>
 												<div className="answer-div" key={answer.id}>
 													Reply: {answer?.answer}
 												</div>
@@ -91,6 +91,7 @@ function CardPage(props) {
 													</button>
 												</Link> */}
 												<button
+													key={`delete-answer--${idx}`}
 													className="button-add-forms"
 													onClick={() => {
 														deleteAnswer(answer.id);
