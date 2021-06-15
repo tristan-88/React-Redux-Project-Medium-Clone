@@ -25,16 +25,7 @@ function ProfileButton({ user }) {
 		return () => document.removeEventListener("click", closeMenu);
 	}, [showMenu]);
 
-	const logout = (e) => {
-		e.preventDefault();
-		try {
-			dispatch(sessionActions.logout());
-			history.push("/");
-		} catch (e) {
-			alert(e.message);
-		}
-
-	};
+	
 
 	return (
 		<div className="show-menu-container">
@@ -49,9 +40,7 @@ function ProfileButton({ user }) {
 					<div>
 						<div className="user-name-div">User:{user.username}</div>
 						<div className="user-email-div">Email:{user.email}</div>
-						<div>
-							<button className="user-logout-btn" onClick={logout}>Log Out</button>
-						</div>
+						
 					</div>
 				</div>
 			)}

@@ -6,6 +6,7 @@ import { useDispatch} from "react-redux";
 import "./LoginForm.css";
 import SignupForm from "../SignFormModal/SignupForm"
 import { Modal } from "../../context/Modal";
+import { NavLink } from "react-router-dom"
 
 function LoginForm() {
 	const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function LoginForm() {
 	const [showModal, setShowModal] = useState(false)
 
 	//if (sessionUser) return <Redirect to="/" />;
-
+const onClick = () => dispatch(sessionActions.demoLogin());
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setErrors([]);
@@ -66,6 +67,11 @@ function LoginForm() {
 				<button className="sign-log_div" onClick={() => setShowModal(true)}>
 					Sign Up
 				</button>
+				<div className="icon_div">
+					<NavLink exact to="/mainpage" onClick={onClick} className="demo-btn">
+						Demo Log in
+					</NavLink>
+				</div>
 				{showModal && (
 					<Modal onClose={() => setShowModal(false)}>
 						<SignupForm />

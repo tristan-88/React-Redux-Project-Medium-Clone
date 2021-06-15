@@ -18,43 +18,61 @@ function Navigation({ isLoaded }) {
 			history.push(path);
 		};
 
-	const onClick = () => dispatch(sessionActions.demoLogin());
+	const logout = (e) => {
+		e.preventDefault();
+		try {
+			dispatch(sessionActions.logout());
+			history.push("/");
+		} catch (e) {
+			alert(e.message);
+		}
+	};
 
 	let sessionLinks;
 	if (sessionUser) {
-		sessionLinks = <ProfileButton user={sessionUser} />;
+		sessionLinks = (
+			<>
+			<ProfileButton user={sessionUser} />
+		
+							<div className="user-logout-btn" onClick={logout}>Log Out</div>
+				
+			</>
+		);
 	} else {
 		sessionLinks = (
-			<div>
-				<LoginFormModal />
-				<SignupFormModal />
-					
-					<div className="icon_div">
-						<NavLink exact to="/mainpage" onClick={onClick} className="demo-btn">
-							Demo Log in
-						</NavLink>
-					</div>
+			<div className="session-links">
+				<div>
+					<LoginFormModal />
+				</div>
+				<div>
+					<SignupFormModal />{" "}
+				</div>
+
+			
 			</div>
 		);
 	}
 
 
-	return (	
-
-		<nav role="navigation">
-			<div id="menuToggle" className="icon_div">
+	return (
+		
+		<nav role="navigation" className="nav-bar">
+			{/* <div id="menuToggle" className="icon_div">
 
 				<i className="fas fa-dragon"></i>
-				<input className="input-item" type="checkbox"></input>
-				
-				<ul id="menu">
-					<NavLink exact to="/" style={{ textDecoration: "none" }}>
-						Home
-					</NavLink>
-					{isLoaded && sessionLinks}
-				</ul>
-				
-			</div>
+				<input className="input-item" type="checkbox"></input> */}
+
+			{/* <ul id="menu"> */}
+				<div className="session-links">
+				<NavLink exact to="/" style={{ textDecoration: "none" }}>
+					<div id="menu">Home</div>
+				</NavLink>
+				</div>
+			{isLoaded &&
+				sessionLinks}
+			{/* </ul> */}
+
+			{/* </div> */}
 		</nav>
 	);
 }

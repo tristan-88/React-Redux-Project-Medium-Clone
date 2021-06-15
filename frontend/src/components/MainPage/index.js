@@ -24,7 +24,7 @@ function MainPage() {
 
 
   return (
-    <>
+    <div className="main-page-container">
     <div className="main-page-div">
 
       {sessionUser && <div className="cards-container">
@@ -34,7 +34,7 @@ function MainPage() {
     
       </div>
 
-  </>
+  </div>
   )
 }
 

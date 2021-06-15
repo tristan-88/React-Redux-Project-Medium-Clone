@@ -8,9 +8,6 @@ i.fas.fa-dragon {
     margin-left: -21px;
 }
 
-.nav-link-container{
-
-}
 
 .demo-btn,
 .signup-btn{
@@ -22,16 +19,16 @@ body
 {
   margin: 0;
   padding: 0;
-  background: #232323;
+  background: linear-gradient(to right, lightblue, plum);
   font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
 #menuToggle
 {
   display: block;
-  position: relative;
-  top: 30px;
-  left: 30px;
+  /* position: relative; */
+  /* top: 30px;
+  left: 30px; */
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
@@ -46,7 +43,7 @@ li:hover{
 .user-email-div
 {
   text-decoration: none;
-   color: plum;
+   color: white;
     text-shadow: -1px 3px 3px black,
 				  3px 3px 3px black,
 				  3px -1px 0 black,
@@ -58,22 +55,22 @@ li:hover{
 
 #menuToggle input
 {
-  display: block;
+  /* display: block;
   width: 40px;
   height: 32px;
-  position: absolute;
+  position: absolute; */
   /* top: -7px;
   left: -5px; */
   cursor: pointer;
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */
-  -webkit-touch-callout: none;
- outline: none;
+  /* -webkit-touch-callout: none;
+ outline: none; */
 }
 
 #menuToggle i.fas.fa-dragon
 {
-  display: block;
+  /* display: block;
   width: 33px;
   height: 4px;
   margin-bottom: 5px;
@@ -84,7 +81,7 @@ li:hover{
   transform-origin: 4px 0px;
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
               background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+              opacity 0.55s ease; */
 
 }
 
@@ -99,25 +96,34 @@ li:hover{
 
 #menu
 {
-  position:relative;
-  margin: -90px 0 0 -50px;
-  padding: 3em;
-  padding-top: 7.8125em;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
+  /* position:relative; */
+  /* margin: -90px 0 0 -50px; */
+  /* padding: 3em; */
+  /* padding-top: 7.8125em; */
+  /* list-style-type: none;
+  -webkit-font-smoothing: antialiased; */
   /* to stop flickering of text in safari */
-  transform-origin: 0% 0%;
+  /* transform-origin: 0% 0%;
   transform: translate(-100%, 0);
   transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-  flex-direction: row;
-  padding-left: 40px;
+  flex-direction: row; */
+  /* padding-left: 40px; */
+   color: white;
+    text-shadow: -1px 3px 3px black,
+				  3px 3px 3px black,
+				  3px -1px 0 black,
+				  -1px -1px 0 black; 
+    transition: color 0.3s ease;
+  font-weight: bold;
+    font-size: 1.2em;
+    padding: 0 10vw;
 }
 
 
 #menu li
 {
   padding: 10px;
-  font-size: 16px;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -127,4 +133,46 @@ li:hover{
 #menuToggle input:checked ~ ul
 {
   transform: none;
+}
+
+.user-btn_div, .user-name-div:hover, .user-email-div:hover {
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.user-btn_div{
+  font-size: 1em;
+}
+
+.nav-bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.session-links{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1em;
+}
+
+  .show-menu-container {
+    display: flex;
+    align-items: center;
+}
+
+.user-logout-btn{
+  padding-top: 0.8em;
+   color: white;
+    text-shadow: -1px 3px 3px black,
+				  3px 3px 3px black,
+				  3px -1px 0 black,
+				  -1px -1px 0 black; 
+    transition: color 0.3s ease;
+  font-weight: bold;
+    font-size: 1.2em;
+    padding: 0 10vw;
+    display: flex;
+    align-items: center;
 }
