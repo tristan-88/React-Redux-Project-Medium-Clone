@@ -101,8 +101,8 @@ li:hover{
 {
   position:relative;
   margin: -90px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
+  padding: 3em;
+  padding-top: 7.8125em;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
