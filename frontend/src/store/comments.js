@@ -8,14 +8,14 @@ const DELETE_COMMENT = 'comments/deleteComment'
 const getComment = (comments) => {
     return {
         type: GET_COMMENTS,
-        payload:comments
+        payload: comments
     }
 }
 
 const postComment = (comment) => {
     return {
         type: POST_COMMENT,
-        payload:comment
+        payload: comment
     }
 }
 
@@ -44,51 +44,54 @@ export const gettingComments = () => async (dispatch) => {
 }
 
 export const updatingComment = (id, comment) => async (dispatch) => {
-	const response = await csrfFetch("/api/comments", {
-		method: "PATCH",
-		body: JSON.stringify({
-			commentId: id,
-			content: comment,
-		}),
-	});
+    const response = await csrfFetch("/api/comments", {
+        method: "PATCH",
+        body: JSON.stringify({
+            commentId: id,
+            content: comment,
+        }),
+    });
 
-	dispatch(updateComment(id, comment));
-	return response;
+    dispatch(updateComment(id, comment));
+    return response;
 };
 
 export const deletingComment = (commentId) => async (dispatch) => {
-	const response = await csrfFetch("/api/comments", {
-		method: "DELETE",
-		body: JSON.stringify({ commentId }),
-	});
-	dispatch(deleteComment(commentId));
-	return response;
+    const response = await csrfFetch("/api/comments", {
+        method: "DELETE",
+        body: JSON.stringify({ commentId }),
+    });
+
+    if (response.ok) {
+        dispatch(deleteComment(commentId));
+    }
+    return response;
 };
 
 export const postingComment = (content, mgtCardId, userId) => async (
-	dispatch
+    dispatch
 ) => {
-	const response = await csrfFetch("/api/comments", {
-		method: "POST",
-		body: JSON.stringify({
-			userId,
-			content,
-			mgtCardId
-		}),
-	});
-	const newComment = await response.json();
-	dispatch(postComment(newComment));
+    const response = await csrfFetch("/api/comments", {
+        method: "POST",
+        body: JSON.stringify({
+            userId,
+            content,
+            mgtCardId
+        }),
+    });
+    const newComment = await response.json();
+    dispatch(postComment(newComment));
 
-	return newComment;
+    return newComment;
 };
 
- const initialState = {}
+const initialState = {}
 const commentReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case GET_COMMENTS:
             newState = Object.assign({}, state)
-    
+
             return newState
         case UPDATE_COMMENT:
             newState = Object.assign({}, state)

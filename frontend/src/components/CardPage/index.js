@@ -2,6 +2,7 @@ import React, { useEffect, } from "react"
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom"
 import { deletingAnswer } from "../../store/answers";
+import { deletingComment } from "../../store/comments";
 import { showMgtCards } from "../../store/mgtcards";
 import EditAnswer from '../EditAnswer'
 import Card from "../MainPage/Card"
@@ -11,13 +12,20 @@ function CardPage(props) {
 	const id = useParams().id;
 	const dispatch = useDispatch()
 	const card = useSelector((state) => state?.mgtcardsRdcr[id]);
-	const answerState = useSelector((state) => state?.answersRdcr)
+	const answerState = useSelector((state) => state?.answersRdcr);
+
 	useEffect(() => {
 		dispatch(showMgtCards());
 	}, [answerState]);
+
 	const deleteAnswer = (answerId) => {
 		dispatch(deletingAnswer(answerId))
 	}
+
+	const handleDeleteComment = (commentId) => {
+		dispatch(deletingComment(commentId));
+	};
+
 	return (
 		<div className="card-page-container">
 			<div className="card_and_comments_container">
@@ -72,7 +80,11 @@ function CardPage(props) {
 										>
 											<button className="button-add-forms" key={`reply-${idx}`}>Reply</button>
 										</Link>
-										<button className="button-add-forms" key={`delete-${idx}`}>
+										<button
+											className="button-add-forms"
+											key={`delete-${idx}`}
+											onClick={() => { handleDeleteComment(comment.id) }}
+										>
 											Delete Comment
 										</button>
 									</div>
