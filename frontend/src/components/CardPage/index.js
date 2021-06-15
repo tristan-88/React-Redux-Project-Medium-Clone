@@ -62,7 +62,7 @@ function CardPage(props) {
 							? card.Comments.map((comment, idx) => (
 								<div className="comment-container" key={`commend-container-${idx}`}>
 									<div className="comment-div" key={comment.id}>
-										Comments: {comment?.content}
+										{comment?.content}
 										{/* <Link exact to={`/comment/${comment.id}`}>
 											<button className="edit_comment_btn">Edit Comment</button>
 										</Link> */}
@@ -77,10 +77,11 @@ function CardPage(props) {
 										</button>
 									</div>
 									<div className="answerComments-div">
+										<p className="answerComments-text">Replies:</p>
 										{comment.AnswerComments.map((answer, idx) => (
 											<div className="answer-container" key={`answer-container-${idx}`}>
 												<div className="answer-div" key={answer.id}>
-													Reply: {answer?.answer}
+													{answer?.answer}
 												</div>
 												{/* <Link
 													exact
@@ -97,7 +98,7 @@ function CardPage(props) {
 														deleteAnswer(answer.id);
 													}}
 												>
-													Delete Answer
+													Delete Reply
 												</button>
 											</div>
 										))}
