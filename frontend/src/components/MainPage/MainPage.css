@@ -5,14 +5,13 @@
     left: 0; */
     overflow: auto;
     width: 100vw;
-    height: 95vh;
+    height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     display: inline-block;   
     /* opacity: 0.6; 
     filter: alpha(opacity=60); */
-    
 }
 
 .card-name-div{
@@ -37,7 +36,7 @@
     display: flex;
     flex-wrap: wrap;
     width: auto;
-    height: 500px;
+    /* height: 500px; */
     justify-content: center;
     overflow-x: none;
     

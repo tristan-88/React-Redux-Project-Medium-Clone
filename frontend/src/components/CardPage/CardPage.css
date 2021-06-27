@@ -122,10 +122,9 @@
 
 .card-container {
     display: flex;
-    padding: 100px;
-    padding-top:120px;
+    padding: 0 5vw;
     align-self: baseline;
-    margin: 10px;
+   
 }
 
 .answer-div{

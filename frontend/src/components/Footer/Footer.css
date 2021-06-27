@@ -1,15 +1,14 @@
 .footer-container {
-	/* position: sticky; */
-	display: flex;
-	/* margin-top: 75px;
-	margin-bottom: 20px;
-	margin-left: -7px;
-	margin-right: -7px; */
-	justify-content: space-evenly;
-	bottom: 0;
-    padding: 0.8em;
-    background: linear-gradient(to right, lightblue, plum);
+
+display : flex;
+flex-direction : row;
+/* padding: 0 10vw; */
+justify-content : space-around;
+padding: 10vh 0;
 }
+
+
+
 
 .fab {
 	font-size: 3em;
@@ -30,6 +29,8 @@
 .porfolio-link {
 	text-decoration: none;
 	font-size: 2em;
+
+
 }
 
 .about-me-div {

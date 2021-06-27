@@ -6,6 +6,7 @@ import { showMgtCards } from "../../store/mgtcards";
 import Card from "./Card"
 import './MainPage.css'
 import Footer from './../Footer/Footer'
+import Navigation from "../Navigation";
 
 function MainPage() {
   //reducers
@@ -22,19 +23,28 @@ function MainPage() {
   }, []);
   //Logout re-direct
 
-
+  const [isLoaded, setIsLoaded] = useState(false);
+  useEffect(() => {
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+  }, [dispatch]);
   return (
-    <div className="main-page-container">
+    <>
+    {/* <div className="main-page-container"> */}
     <div className="main-page-div">
-
-      {sessionUser && <div className="cards-container">
+        <Navigation isLoaded={ isLoaded}/>
+<div>
+  {sessionUser && <div className="cards-container">
         {cards.map((card) => <Card card={card} key={card.id} />)}
       </div>}
       {sessionUser ? null : <Redirect exact to="/" />}
-    
       </div>
-
-  </div>
+      
+    <Footer/>
+      </div>
+      
+  {/* </div> */}
+  
+  </>
   )
 }
 

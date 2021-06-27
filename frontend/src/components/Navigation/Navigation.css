@@ -12,6 +12,8 @@ i.fas.fa-dragon {
 .demo-btn,
 .signup-btn{
     text-decoration: none;
+color : linear-gradient (to right, lightblue, plum);
+
 } 
 
 
@@ -19,7 +21,7 @@ body
 {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, lightblue, plum);
+  /* background: linear-gradient(to right, lightblue, plum); */
   font-family: "Avenir Next", "Avenir", sans-serif;
 }
 
@@ -148,6 +150,7 @@ li:hover{
   display: flex;
   flex-direction: row;
   justify-content: center;
+  padding: 5 0;
 }
 
 .session-links{

@@ -22,7 +22,7 @@ function App() {
 
 	return (
 		<>
-			<Navigation isLoaded={isLoaded}></Navigation>
+			{/* <Navigation isLoaded={isLoaded}></Navigation> */}
 			{isLoaded && (
 				<>
 					<Switch>
@@ -51,7 +51,7 @@ function App() {
 					
 				</>
 			)}
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 }
