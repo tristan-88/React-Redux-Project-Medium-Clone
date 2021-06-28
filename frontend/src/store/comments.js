@@ -80,7 +80,7 @@ export const postingComment = (content, mgtCardId, userId) => async (
         }),
     });
     const newComment = await response.json();
-    dispatch(postComment(newComment));
+    dispatch(postComment(newComment.comment));
 
     return newComment;
 };

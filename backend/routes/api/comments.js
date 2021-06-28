@@ -9,7 +9,7 @@ router.get(
     asyncHandler(async (req, res) => {
         const comments = await Comment.findAll({
             attributes: ['id', "content", "userId", "mgtCardId"],
-            order:"id ASC",
+            order:[["id", "DESC"]],
         });
         return res.json({
             comments,
@@ -23,15 +23,15 @@ router.post(
         const userId = req.body.userId;
         const mgtCardId = req.body.mgtCardId;
         const content = req.body.content;
-        await Comment.create({
+        const comment = await Comment.create({
             content,
             userId,
             mgtCardId,
         });
-        const comments = await Comment.findAll({
-            where: { mgtCardId }
-        });
-        // return res.json({ comments });
+        // const comments = await Comment.findAll({
+        //     where: { mgtCardId }
+        // });
+        return res.json({ comment });
     })
 );
 

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 import { deletingAnswer, updatingAnswer } from "../../store/answers";
 import { deletingComment, updatingComment } from "../../store/comments";
-import { showMgtCards } from "../../store/mgtcards";
+import { showMgtCards, showSingleCard } from "../../store/mgtcards";
 import EditAnswer from "../EditAnswer";
 import Card from "../MainPage/Card";
 import "./CardPage.css";
@@ -15,21 +15,21 @@ function CardPage(props) {
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const card = useSelector((state) => state?.mgtcardsRdcr[id]);
+  const comments = useSelector((state)=> state?.mgtcardsRdcr[id]?.Comments)
   const answerState = useSelector((state) => state?.answersRdcr);
   const commentState = useSelector((state) => state.commentsRdcr);
   const [showCommentEditForm, setShowCommentEditForm] = useState("");
   const [showAnswerEditForm, setShowAnswerEditForm] = useState("");
   const [editForm, setEditForm] = useState("");
-
-  // const comments = useSelector((state) => state?.mgtcardsRdcr[id].Comments)
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   useEffect(() => {
-    dispatch(showMgtCards());
-  }, [answerState, commentState]);
+	//   dispatch(showMgtCards());
+	  dispatch(showSingleCard(id))
+  }, [answerState, comments?.length]);
 
   const deleteAnswer = (answerId) => {
     dispatch(deletingAnswer(answerId));
@@ -106,8 +106,7 @@ function CardPage(props) {
               <Link exact to={`/card/${card?.id}/post/comment`}>
                 <button className="button-add-forms">Add Comment</button>
               </Link>
-              {card
-                ? card.Comments.map((comment, idx) => (
+              {card ? comments.map((comment, idx) => (
                     <div
                       className="comment-container"
                       key={`commend-container-${idx}`}
