@@ -103,9 +103,10 @@
 }
 
 .comment-div {
-  border-top: 1px solid greenyellow;
+  border-top: 1px solid rgb(47, 130, 255);
   border-bottom: 1px solid rgb(47, 130, 255);
-  margin-top: 20px;
+  margin-top: 1em;
+  padding: 1em;
 }
 
 .answerComments-text {
@@ -133,6 +134,8 @@
 .button-add-forms,
 .save-changes,
 .cancel-edit{
+  width: 12em;
+  height: 3em;
   font-size: larger;
  	color: white;
 	text-shadow: -1px 3px 3px black, 3px 3px 3px black, 3px -1px 0 black,
@@ -145,7 +148,7 @@
     display: inline-block;
     border: none;
     transition: all 0.4s ease 0s;
-    margin: 0.2em;
+    margin: 1em;
     box-shadow: 0 1rem 1.25rem 0 rgb(22 75 195 / 50%), 0 -0.25rem 1.5rem rgb(110 15 155) inset, 0 0.75rem 0.5rem rgb(255 255 255 / 40%) inset, 0 0.25rem 0.5rem 0 rgb(180 70 207) inset;
 }
 
@@ -156,4 +159,12 @@
     -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
     transition: all 0.4s ease 0s;
 
+}
+
+textarea{
+  width: 20em;
+}
+
+button.button-add-forms {
+    margin-left: 1.2em;
 }

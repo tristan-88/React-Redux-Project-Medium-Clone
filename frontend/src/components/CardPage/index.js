@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
-import { deletingAnswer } from "../../store/answers";
+import { deletingAnswer, updatingAnswer } from "../../store/answers";
 import { deletingComment, updatingComment } from "../../store/comments";
 import { showMgtCards } from "../../store/mgtcards";
 import EditAnswer from "../EditAnswer";
@@ -18,12 +18,15 @@ function CardPage(props) {
   const answerState = useSelector((state) => state?.answersRdcr);
   const commentState = useSelector((state) => state.commentsRdcr);
   const [showCommentEditForm, setShowCommentEditForm] = useState("");
+  const [showAnswerEditForm, setShowAnswerEditForm] = useState("");
   const [editForm, setEditForm] = useState("");
+
   // const comments = useSelector((state) => state?.mgtcardsRdcr[id].Comments)
   const [isLoaded, setIsLoaded] = useState(false);
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
+
   useEffect(() => {
     dispatch(showMgtCards());
   }, [answerState, commentState]);
@@ -40,14 +43,24 @@ function CardPage(props) {
     setShowCommentEditForm(`edit-comment-${commentId}`);
     setEditForm(content);
   };
+  const handleShowEditAnswerForm = (answerId, answer) => {
+    setShowAnswerEditForm(`edit-answer-${answerId}`);
+    setEditForm(answer);
+  };
 
   const handleCancel = () => {
     setShowCommentEditForm("");
+    setShowAnswerEditForm("");
     setEditForm("");
   };
 
   const handleCommentEdit = (commentId) => {
     dispatch(updatingComment(commentId, editForm));
+    handleCancel();
+  };
+
+  const handleAnswerEdit = (answerId) => {
+    dispatch(updatingAnswer(answerId, editForm));
     handleCancel();
   };
 
@@ -182,14 +195,46 @@ function CardPage(props) {
                               </div>
                               <p>{answer?.answer}</p>
                             </div>
-                            {/* <Link
-													exact
-													to={`/card/${answer.id}/answer/${answer.id}`}
-													>
-													<button className="edit_answer_btn">
-														Edit Reply
-													</button>
-												</Link> */}
+                            {showAnswerEditForm !==
+                              `edit-answer-${answer.id}` &&
+                              answer.userId === sessionUser.id && (
+                                <button
+                                  className="button-add-forms"
+                                  onClick={() => {
+                                    handleShowEditAnswerForm(
+                                      answer.id,
+                                      answer.answer
+                                    );
+                                  }}
+                                >
+                                  Edit Answer
+                                </button>
+                              )}
+                            {showAnswerEditForm ===
+                              `edit-answer-${answer.id}` && (
+                              <>
+                                <textarea
+                                  value={editForm}
+                                  onChange={(e) => {
+                                    setEditForm(e.target.value);
+                                  }}
+                                />
+                                <button
+                                  onClick={() => {
+                                    handleAnswerEdit(answer.id);
+                                  }}
+                                  className="save-changes"
+                                >
+                                  Save changes
+                                </button>
+                                <button
+                                  onClick={handleCancel}
+                                  className="cancel-edit"
+                                >
+                                  Cancel
+                                </button>
+                              </>
+                            )}
                             {answer.userId === sessionUser.id && (
                               <button
                                 key={`delete-answer--${idx}`}

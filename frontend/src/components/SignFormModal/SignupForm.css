@@ -26,16 +26,28 @@
     cursor: pointer;
 }
 
-.user-btn_div,
+.user-btn_div:hover,
 .user-name-div:hover,
 .user-email-div:hover {
     font-size: 2em;
     cursor: pointer;
+     background-color: plum;
 }
 
 .user-logout-btn:hover {
     cursor: pointer;
-    background-color: gray;
+    background-color: plum;
+}
+
+#menu:hover{
+    background-color: plum;
+    cursor: pointer;
+}
+
+
+.user-btn_div{
+    cursor: pointer;
+    font-size: 2em;
 }
 
 .error_message{

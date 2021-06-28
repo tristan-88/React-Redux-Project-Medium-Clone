@@ -8,7 +8,8 @@ router.get(
     '/',
     asyncHandler(async (req, res) => {
         const comments = await Comment.findAll({
-            attributes: ['id', "content", "userId", "mgtCardId"]
+            attributes: ['id', "content", "userId", "mgtCardId"],
+            order:"id ASC",
         });
         return res.json({
             comments,
