@@ -185,9 +185,9 @@ function CardPage(props) {
                         )}
                       </div>
                       <div className="answerComments-div">
-                        <p className="answerComments-text">
-                          <h1>Replies:</h1>
-                        </p>
+                        <h1 className="answerComments-text">
+                         Replies:
+                        </h1>
                         {comment.AnswerComments.length === 0 ? "There are no replies on this comment...":comment.AnswerComments.map((answer, idx) => (
                           <div
                             className="answer-container"
