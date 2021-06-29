@@ -103,10 +103,13 @@ function CardPage(props) {
             </div>
 
             <div className="comments_and_answer-div">
+              <h1>Comments</h1>
+
               <Link exact to={`/card/${card?.id}/post/comment`}>
                 <button className="button-add-forms">Add Comment</button>
               </Link>
-              {card ? comments.map((comment, idx) => (
+              {card
+                ? comments.map((comment, idx) => (
                     <div
                       className="comment-container"
                       key={`commend-container-${idx}`}
@@ -182,8 +185,10 @@ function CardPage(props) {
                         )}
                       </div>
                       <div className="answerComments-div">
-                        <p className="answerComments-text">Replies:</p>
-                        {comment.AnswerComments.map((answer, idx) => (
+                        <p className="answerComments-text">
+                          <h2>Replies:</h2>
+                        </p>
+                        {comment.AnswerComments.length === 0 ? "There No replies on this comment...":comment.AnswerComments.map((answer, idx) => (
                           <div
                             className="answer-container"
                             key={`answer-container-${idx}`}
