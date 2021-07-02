@@ -1,7 +1,8 @@
 #modal-content {
 	background-image: url("../../../src/project-items/4hRzp7H7kPe85oW7cI0ThA.jpeg");
 	width: 500px;
-	height: 500px;
+	/* height: 500px; */
+	height: fit-content;
 	text-align: center;
 	background-position: center;
 	background-size: cover;
@@ -14,6 +15,7 @@
 	background-color: black;
    margin:  .5em;
    font-size: 2em;
+   padding: 1em;
 }
 
 .log_in_container {

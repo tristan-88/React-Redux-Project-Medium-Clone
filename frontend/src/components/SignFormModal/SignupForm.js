@@ -44,14 +44,18 @@ function SignupForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(hideSignUp())
+    
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(
         sessionActions.signup({ email, username, password })
       ).catch(async (res) => {
         const data = await res.json();
-        if (data && data.errors) setErrors(data.errors);
+        if (data && data.errors) {
+          setErrors(data.errors)
+        } else {
+          dispatch(hideSignUp())
+        }
       });
     }
     return setErrors([
@@ -112,6 +116,7 @@ function SignupForm() {
             <LoginForm />
           </Modal>
         )} */}
+        <label></label>
       </form>
       <button className="sign-log_div" onClick={modalToggle}>
           Log In
