@@ -7,3 +7,7 @@
     top:0;
     bottom: 0;
 }
+
+button{
+    cursor: pointer;
+}

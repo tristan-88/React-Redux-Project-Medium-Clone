@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "../../context/Modal"
 import SignupForm from './SignupForm'
-// import './SignupForm.css'
+import './SignupForm.css'
 import { useDispatch, useSelector } from "react-redux";
 import * as modalAction from "../../store/modal";
 
