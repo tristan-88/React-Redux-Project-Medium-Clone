@@ -7,29 +7,29 @@ import * as modalAction from "../../store/modal";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
-    const modalLogIn = useSelector((state) => state.modalReducer.showLogin);
+    const modalLogIn = useSelector((state) => state.modalReducer.showLogIn);
     const modalSignUp = useSelector((state) => state.modalReducer.showSignUp);
     const [showModal, setShowModal] = useState(false);
     const { showLogIn, showSignUp, hideLogIn, hideSignUp } = modalAction;
 
-    useEffect(() => {
-      if (modalSignUp === false) {
-        setShowModal(false);
-      } else if (modalSignUp === true) {
-        setShowModal(true);
-      }
-    }, [modalSignUp]);
+    // useEffect(() => {
+    //   if (modalSignUp === false) {
+    //     setShowModal(false);
+    //   } else if (modalSignUp === true) {
+    //     setShowModal(true);
+    //   }
+    // }, [modalSignUp]);
 
     const modalToggle = () => {
-      setShowModal(true);
+      // setShowModal(true);
       dispatch(showSignUp());
       dispatch(hideLogIn());
     };
 
     const closeAll = () => {
-      setShowModal(false);
+      // setShowModal(false);
       dispatch(hideSignUp());
-      dispatch(hideLogIn());
+      // dispatch(hideLogIn());
     };
 
 	return (
@@ -37,7 +37,7 @@ function SignupFormModal() {
 			<div className="sign_div" onClick={modalToggle}>
 				Sign Up
 			</div>
-			{showModal && (
+			{modalSignUp && (
 				<Modal onClose={closeAll}>
 					<SignupForm />
 				</Modal>

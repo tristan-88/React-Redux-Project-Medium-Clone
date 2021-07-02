@@ -16,34 +16,35 @@ function SignupForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const modalLogIn = useSelector((state) => state.modalReducer.showLogin);
+  const modalLogIn = useSelector((state) => state.modalReducer.showLogIn);
   const modalSignUp = useSelector((state) => state.modalReducer.showSignUp);
   const { showLogIn, showSignUp, hideLogIn, hideSignUp } = modalAction;
 
-  useEffect(() => {
-    if (modalSignUp === false) {
-      setShowModal(false);
-    } else if (modalSignUp === true) {
-      setShowModal(true);
-    }
-  }, [modalSignUp]);
+  // useEffect(() => {
+  //   if (modalSignUp === false) {
+  //     setShowModal(false);
+  //   } else if (modalSignUp === true) {
+  //     setShowModal(true);
+  //   }
+  // }, [modalSignUp]);
 	
   if (sessionUser) return <Redirect to="/mainpage" />;
 
   const modalToggle = () => {
-    setShowModal(true);
-    dispatch(showSignUp());
-    dispatch(hideLogIn());
+    // setShowModal(true);
+    dispatch(showLogIn());
+    dispatch(hideSignUp());
   };
 
   const closeAll = () => {
-    setShowModal(false);
+    // setShowModal(false);
     dispatch(hideSignUp());
-    dispatch(hideLogIn());
+    // dispatch(hideLogIn());
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(hideSignUp())
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(
@@ -105,15 +106,16 @@ function SignupForm() {
         </label>
         <button type="submit">Sign Up</button>
         <div>Already a user? </div>
-        <button className="sign-log_div" onClick={modalToggle}>
-          Log In
-        </button>
-        {showModal && (
+      
+        {/* {modalLogIn && (
           <Modal onClose={closeAll}>
             <LoginForm />
           </Modal>
-        )}
+        )} */}
       </form>
+      <button className="sign-log_div" onClick={modalToggle}>
+          Log In
+        </button>
     </div>
   );
 }
