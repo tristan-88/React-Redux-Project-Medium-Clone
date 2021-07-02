@@ -1,7 +1,8 @@
 // frontend/src/components/LoginFormPage/index.js
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch} from "react-redux";
+import * as modalAction from "../../store/modal";
+import { useDispatch, useSelector} from "react-redux";
 //import { Redirect } from "react-router-dom";
 import "./LoginForm.css";
 import SignupForm from "../SignFormModal/SignupForm"
@@ -15,6 +16,29 @@ function LoginForm() {
 	const [password, setPassword] = useState("");
 	const [errors, setErrors] = useState([]);
 	const [showModal, setShowModal] = useState(false)
+    const modalLogIn = useSelector((state) => state.modalReducer.showLogin);
+    const modalSignUp = useSelector((state) => state.modalReducer.showSignUp);
+    const { showLogIn, showSignUp, hideLogIn, hideSignUp } = modalAction;
+
+    useEffect(() => {
+      if (modalLogIn === false) {
+        setShowModal(false);
+      } else if (modalLogIn === true) {
+        setShowModal(true);
+      }
+    }, [modalLogIn]);
+
+    const modalToggle = () => {
+      setShowModal(true);
+      dispatch(showLogIn());
+      dispatch(hideSignUp());
+    };
+
+    const closeAll = () => {
+      setShowModal(false);
+      dispatch(hideLogIn());
+      dispatch(hideSignUp());
+    };
 
 	//if (sessionUser) return <Redirect to="/" />;
 const onClick = () => dispatch(sessionActions.demoLogin());
@@ -64,7 +88,7 @@ const onClick = () => dispatch(sessionActions.demoLogin());
 					<button type="submit">Log In</button>
 				</div>
 				<div>Not a user? </div>
-				<button className="sign-log_div" onClick={() => setShowModal(true)}>
+				<button className="sign-log_div" onClick={modalToggle}>
 					Sign Up
 				</button>
 				<div className="icon_div">
@@ -73,7 +97,7 @@ const onClick = () => dispatch(sessionActions.demoLogin());
 					</NavLink>
 				</div>
 				{showModal && (
-					<Modal onClose={() => setShowModal(false)}>
+					<Modal onClose={closeAll}>
 						<SignupForm />
 					</Modal>
 				)}

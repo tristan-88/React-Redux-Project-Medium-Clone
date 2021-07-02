@@ -45,7 +45,7 @@ function Navigation({ isLoaded }) {
 					<LoginFormModal />
 				</div>
 				<div>
-					<SignupFormModal />{" "}
+					<SignupFormModal />
 				</div>
 
 			

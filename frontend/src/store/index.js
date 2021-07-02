@@ -6,13 +6,14 @@ import * as sessionActions from "./session";
 import mgtCardReducer from "./mgtcards"
 import commentReducer from "./comments"
 import answerReducer from "./answers"
+import modalReducer from "./modal";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   mgtcardsRdcr: mgtCardReducer,
   commentsRdcr: commentReducer,
   answersRdcr: answerReducer,
-  
+  modalReducer
 });
 
 let enhancer;
