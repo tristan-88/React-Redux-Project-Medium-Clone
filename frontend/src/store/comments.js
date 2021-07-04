@@ -100,6 +100,12 @@ const commentReducer = (state = initialState, action) => {
         case POST_COMMENT:
             newState = Object.assign({}, state)
             newState.update = true;
+            // let card = newState[action.payload.mgtCardId]
+            // if (card.Comments) {
+            //     card.Comments.push(action.payload)
+            // } else {
+            //     card.Comments = [action.payload]
+            // }
             return newState
         case DELETE_COMMENT:
             return { ...state, update: true }

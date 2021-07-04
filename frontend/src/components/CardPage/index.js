@@ -22,14 +22,16 @@ function CardPage(props) {
   const [showAnswerEditForm, setShowAnswerEditForm] = useState("");
   const [editForm, setEditForm] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
+  const [rerender, setReRender] = useState(false)
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
   useEffect(() => {
 	//   dispatch(showMgtCards());
-	  dispatch(showSingleCard(id))
-  }, [answerState, comments?.length]);
+    dispatch(showSingleCard(id))
+    setReRender(false)
+  }, [answerState, comments?.length, rerender]);
 
   const deleteAnswer = (answerId) => {
     dispatch(deletingAnswer(answerId));
@@ -37,6 +39,7 @@ function CardPage(props) {
 
   const handleDeleteComment = (commentId) => {
     dispatch(deletingComment(commentId));
+    setReRender(true)
   };
 
   const handleShowEditCommentForm = (commentId, content) => {
@@ -56,6 +59,7 @@ function CardPage(props) {
 
   const handleCommentEdit = (commentId) => {
     dispatch(updatingComment(commentId, editForm));
+    setReRender(true)
     handleCancel();
   };
 
